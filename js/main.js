@@ -161,7 +161,8 @@ function speakerCard(p) {
   const domain = p.domainLabel
     ? `<span class="speaker-domain ${esc(p.track || '')}">${esc(p.domainLabel)}</span>`
     : '<span></span>';
-  const tag = 'href' in p ? 'a' : 'div';
+  const tag = "div";
+  // const tag = "href" in p ? "a" : "div";
   const href = p.href ? ` href="${esc(p.href)}" target="_blank"` : '';
   return `
     <${tag} class="speaker-card"${href}>
