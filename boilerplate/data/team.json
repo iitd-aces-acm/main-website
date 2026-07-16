@@ -1,0 +1,32 @@
+{
+  "hero": {
+    "title": "The Team",
+    "sub": "The students and faculty who run ACES-ACM through the year."
+  },
+  "groups": [
+    {
+      "title": "Faculty Advisor",
+      "members": [
+        { "name": "Prof. Placeholder", "role": "Faculty Advisor, ACES-ACM · CSE, IIT Delhi", "track": "", "domainLabel": "Faculty", "bio": "Filler bio — guides the society and mentors the student team.", "href": "#", "socials": [{ "label": "Website", "icon": "fa-solid fa-globe", "href": "#" }] }
+      ]
+    },
+    {
+      "title": "Office Bearers",
+      "members": [
+        { "name": "Placeholder One", "role": "President", "track": "", "domainLabel": "Core Team", "bio": "Filler bio — leads the society and its overall direction.", "socials": [{ "label": "LinkedIn", "icon": "fab fa-linkedin-in", "href": "#" }] },
+        { "name": "Placeholder Two", "role": "Vice President", "track": "", "domainLabel": "Core Team", "bio": "Filler bio — supports leadership and coordinates verticals.", "socials": [{ "label": "LinkedIn", "icon": "fab fa-linkedin-in", "href": "#" }] },
+        { "name": "Placeholder Three", "role": "General Secretary", "track": "", "domainLabel": "Core Team", "bio": "Filler bio — handles operations and communications.", "socials": [{ "label": "LinkedIn", "icon": "fab fa-linkedin-in", "href": "#" }] },
+        { "name": "Placeholder Four", "role": "Treasurer", "track": "", "domainLabel": "Core Team", "bio": "Filler bio — manages finances and sponsorships.", "socials": [{ "label": "LinkedIn", "icon": "fab fa-linkedin-in", "href": "#" }] }
+      ]
+    },
+    {
+      "title": "Coordinators",
+      "members": [
+        { "name": "Placeholder Five", "role": "Technical Coordinator", "track": "", "domainLabel": "Coordinator", "bio": "Filler bio — runs workshops, dev sessions, and hackathons.", "socials": [] },
+        { "name": "Placeholder Six", "role": "Research Coordinator", "track": "", "domainLabel": "Coordinator", "bio": "Filler bio — leads the symposium and research initiatives.", "socials": [] },
+        { "name": "Placeholder Seven", "role": "Design & Web", "track": "", "domainLabel": "Coordinator", "bio": "Filler bio — handles design, branding, and this website.", "socials": [] },
+        { "name": "Placeholder Eight", "role": "Outreach & Socials", "track": "", "domainLabel": "Coordinator", "bio": "Filler bio — manages outreach, sponsorships, and social events.", "socials": [] }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "hero": {
+    "title": "About ACES-ACM",
+    "sub": "The student society of the CSE department at IIT Delhi, and its ACM Student Chapter."
+  },
+  "body": [
+    "ACES-ACM is the departmental student society of Computer Science & Engineering at IIT Delhi. As the department's ACM Student Chapter, we serve as the bridge between students, faculty, and the wider computing community.",
+    "Through the academic year we organise technical workshops, speaker series, research initiatives, hackathons, coding contests, and social events. Our flagship event, the CSE Research Symposium, brings the department's research community together for two days each year — but it is just one of the many things we do.",
+    "Our mission is to build a vibrant, inclusive community for every CSE student — helping them learn, build, research, connect, and have fun along the way.",
+    "This is filler copy. Replace the text in data/about.json to update this page directly."
+  ],
+  "pills": [
+    { "icon": "fa-solid fa-building-columns", "label": "Affiliation", "value": "Dept. of CSE, IIT Delhi · ACM Student Chapter" },
+    { "icon": "fa-solid fa-users", "label": "Membership", "value": "Open to all CSE students, all years" },
+    { "icon": "fa-solid fa-calendar-check", "label": "Activity", "value": "20+ events across the academic year" },
+    { "icon": "fa-solid fa-award", "label": "Flagship event", "value": "CSE Research Symposium" },
+    { "icon": "fa-solid fa-envelope-open-text", "label": "Contact", "value": "iitdelhiacesacm@gmail.com" }
+  ],
+  "tracks": {
+    "label": "What We Do",
+    "title": "Our Focus Areas",
+    "sub": "The society's work spans four broad areas.",
+    "items": [
+      {
+        "track": "ai", "icon": "fa-solid fa-laptop-code",
+        "title": "Technical",
+        "desc": "Coding workshops, dev sessions, hackathons, and skill-building across the CSE stack.",
+        "topics": ["Workshops", "Hackathons", "Coding Contests"]
+      },
+      {
+        "track": "theory", "icon": "fa-solid fa-flask",
+        "title": "Research",
+        "desc": "Connecting students with faculty research, headlined by the CSE Research Symposium.",
+        "topics": ["Research Symposium", "Paper Reading", "Faculty Talks"]
+      },
+      {
+        "track": "sys", "icon": "fa-solid fa-bullhorn",
+        "title": "Outreach",
+        "desc": "Speaker series, industry sessions, and alumni collaborations.",
+        "topics": ["Speaker Series", "Industry Talks", "Alumni Connect"]
+      },
+      {
+        "track": "hci", "icon": "fa-solid fa-people-group",
+        "title": "Community & Socials",
+        "desc": "Fresher's meets, game nights, and mentorship that build department culture.",
+        "topics": ["Fresher's Meet", "Socials", "Mentorship"]
+      }
+    ]
+  }
+}

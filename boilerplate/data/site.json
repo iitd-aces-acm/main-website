@@ -1,0 +1,49 @@
+{
+  "brand": {
+    "name": "ACES-ACM",
+    "logos": ["assets/cse-logo.jpg", "assets/aces.png"]
+  },
+  "nav": [
+    { "label": "Home", "href": "index.html", "page": "home" },
+    { "label": "About", "href": "about.html", "page": "about" },
+    { "label": "Events", "href": "events.html", "page": "events" },
+    { "label": "Team", "href": "team.html", "page": "team" },
+    { "label": "Gallery", "href": "gallery.html", "page": "gallery" },
+    { "label": "Calendar", "href": "calendar.html", "page": "calendar" },
+    { "label": "Newsletter", "href": "newsletter.html", "page": "newsletter", "cta": true }
+  ],
+  "socials": [
+    { "label": "Instagram", "icon": "fab fa-instagram", "href": "https://www.instagram.com/acesacm.iitdelhi/" },
+    { "label": "LinkedIn", "icon": "fab fa-linkedin-in", "href": "https://www.linkedin.com/company/aces-acm-iit-delhi/" },
+    { "label": "Email", "icon": "fa fa-envelope", "href": "mailto:iitdelhiacesacm@gmail.com" }
+  ],
+  "footer": {
+    "blurb": "ACES-ACM is the student society of the Department of Computer Science &amp; Engineering, IIT Delhi, and its ACM Student Chapter.<br /><br />Department of CSE, IIT Delhi, Hauz Khas, New Delhi - 110016.",
+    "copyright": "© 2026 ACES-ACM, Dept. of CSE, IIT Delhi. All rights reserved.",
+    "columns": [
+      {
+        "title": "Explore",
+        "links": [
+          { "label": "About", "href": "about.html" },
+          { "label": "Events", "href": "events.html" },
+          { "label": "Team", "href": "team.html" },
+          { "label": "Gallery", "href": "gallery.html" }
+        ]
+      },
+      {
+        "title": "Stay Updated",
+        "links": [
+          { "label": "Calendar", "href": "calendar.html" },
+          { "label": "Newsletter", "href": "newsletter.html" }
+        ]
+      },
+      {
+        "title": "Contact",
+        "links": [
+          { "label": "iitdelhiacesacm@gmail.com", "href": "mailto:iitdelhiacesacm@gmail.com" },
+          { "label": "cse.iitd.ac.in", "href": "https://www.cse.iitd.ac.in" }
+        ]
+      }
+    ]
+  }
+}

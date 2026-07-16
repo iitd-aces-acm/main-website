@@ -1,0 +1,92 @@
+{
+  "hero": {
+    "eyebrow": "CSE Department Society · IIT Delhi",
+    "title": "ACES-ACM",
+    "org": "The student society of the Department of Computer Science &amp; Engineering, IIT Delhi<br>and its ACM Student Chapter",
+    "image": "assets/poster.png",
+    "meta": [
+      { "icon": "fa-solid fa-building-columns", "text": "Dept. of Computer Science & Engineering, IIT Delhi" },
+      { "icon": "fa-solid fa-users", "text": "Open to all CSE students across years and programmes" },
+      { "icon": "fa-solid fa-code", "text": "Talks · Workshops · Research · Hackathons · Socials" }
+    ],
+    "actions": [
+      { "label": "Explore Events", "href": "events.html", "style": "btn-primary", "icon": "fa-regular fa-calendar-days" },
+      { "label": "Meet the Team", "href": "team.html", "style": "btn-outline", "icon": "fa-solid fa-users" }
+    ],
+    "stats": [
+      { "num": "20+", "label": "Events / Year" },
+      { "num": "4", "label": "Focus Areas" },
+      { "num": "500+", "label": "Members" }
+    ]
+  },
+  "about": {
+    "label": "About the Society",
+    "title": "The Home of CSE Student Life at IIT Delhi",
+    "body": [
+      "ACES-ACM is the departmental student society of Computer Science & Engineering at IIT Delhi, and the department's ACM Student Chapter. We bring together students across every year and programme.",
+      "Through the year we run technical talks, workshops, research initiatives, hackathons, and socials — including our flagship CSE Research Symposium. This is filler copy; edit data/home.json to update."
+    ],
+    "pills": [
+      { "icon": "fa-solid fa-building-columns", "label": "Affiliation", "value": "Dept. of CSE, IIT Delhi · ACM Student Chapter" },
+      { "icon": "fa-solid fa-users", "label": "Membership", "value": "Open to all CSE students" },
+      { "icon": "fa-solid fa-lightbulb", "label": "What we do", "value": "Talks · Workshops · Research · Socials" },
+      { "icon": "fa-solid fa-award", "label": "Flagship event", "value": "CSE Research Symposium" }
+    ]
+  },
+  "tracks": {
+    "label": "What We Do",
+    "title": "Our Focus Areas",
+    "sub": "Everything ACES-ACM does falls under four broad areas of student life.",
+    "items": [
+      {
+        "track": "ai", "icon": "fa-solid fa-laptop-code",
+        "title": "Technical",
+        "desc": "Coding workshops, dev sessions, and hands-on skill-building across the CSE stack.",
+        "topics": ["Workshops", "Dev Sessions", "Hackathons", "Coding Contests"]
+      },
+      {
+        "track": "theory", "icon": "fa-solid fa-flask",
+        "title": "Research",
+        "desc": "Connecting students with faculty and cutting-edge research, headlined by the CSE Research Symposium.",
+        "topics": ["Research Symposium", "Paper Reading", "Faculty Talks"]
+      },
+      {
+        "track": "sys", "icon": "fa-solid fa-bullhorn",
+        "title": "Outreach",
+        "desc": "Speaker series, industry sessions, and collaborations that open doors beyond the classroom.",
+        "topics": ["Speaker Series", "Industry Talks", "Alumni Connect"]
+      },
+      {
+        "track": "hci", "icon": "fa-solid fa-people-group",
+        "title": "Community & Socials",
+        "desc": "Fresher's meets, game nights, and events that make the CSE department feel like home.",
+        "topics": ["Fresher's Meet", "Socials", "Mentorship"]
+      }
+    ]
+  },
+  "speakers": {
+    "label": "The Team",
+    "title": "Meet the People Behind ACES-ACM",
+    "sub": "A preview of the student team running the society this year.",
+    "items": [
+      {
+        "name": "Placeholder One", "role": "President, ACES-ACM", "track": "", "domainLabel": "Core Team",
+        "bio": "Filler bio — leads the society and its overall direction.", "href": "team.html"
+      },
+      {
+        "name": "Placeholder Two", "role": "Vice President, ACES-ACM", "track": "", "domainLabel": "Core Team",
+        "bio": "Filler bio — supports leadership and coordinates verticals.", "href": "team.html"
+      },
+      {
+        "name": "Placeholder Three", "role": "General Secretary, ACES-ACM", "track": "", "domainLabel": "Core Team",
+        "bio": "Filler bio — handles operations and communications.", "href": "team.html"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Be part of ACES-ACM",
+    "sub": "Come to an event, join a workshop, or help run the society. There's a place for every CSE student here.",
+    "label": "See what's coming up",
+    "href": "events.html"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "hero": {
+    "title": "Newsletter",
+    "sub": "Event recaps, opportunities, and announcements from ACES-ACM."
+  },
+  "signup": {
+    "title": "Subscribe to the ACES-ACM newsletter",
+    "sub": "Get event announcements, workshop invites, and CSE community news in your inbox. (Demo form — wire it to your provider.)",
+    "placeholder": "your.name@iitd.ac.in",
+    "button": "Subscribe"
+  },
+  "issues": {
+    "label": "Archive",
+    "title": "Past Issues",
+    "sub": "Browse previous editions. Edit data/newsletter.json to add issues.",
+    "items": [
+      { "number": "Issue #06", "title": "Spring Semester Lineup", "date": "January 2026", "summary": "Filler summary — the full slate of workshops, talks, and the upcoming symposium.", "href": "#" },
+      { "number": "Issue #05", "title": "Hackathon Recap", "date": "November 2025", "summary": "Filler summary — highlights, winners, and photos from the ACES Hackathon.", "href": "#" },
+      { "number": "Issue #04", "title": "Welcome, Freshers!", "date": "August 2025", "summary": "Filler summary — introducing ACES-ACM to the incoming CSE batch.", "href": "#" },
+      { "number": "Issue #03", "title": "Symposium Highlights", "date": "April 2025", "summary": "Filler summary — a look back at the CSE Research Symposium.", "href": "#" }
+    ]
+  }
+}
