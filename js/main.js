@@ -60,11 +60,44 @@ function renderNavbar(site) {
           <span class="nav-brand">${esc(site.brand.name)}</span>
         </a>
         <ul class="nav-links" id="navLinks">${links}</ul>
-        <div class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></div>
+        <button class="nav-hamburger" id="hamburger" type="button"
+          aria-label="Toggle navigation menu" aria-controls="navLinks" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>`;
 
-  $('#hamburger').addEventListener('click', () => $('#navLinks').classList.toggle('mobile-open'));
+  const hamburger = $('#hamburger');
+  const navLinks = $('#navLinks');
+
+  const setMenu = (open) => {
+    navLinks.classList.toggle('mobile-open', open);
+    hamburger.classList.toggle('active', open);
+    hamburger.setAttribute('aria-expanded', String(open));
+    document.body.classList.toggle('nav-open', open);
+  };
+
+  hamburger.addEventListener('click', () => setMenu(!navLinks.classList.contains('mobile-open')));
+
+  // Close after tapping a link
+  navLinks.addEventListener('click', (e) => {
+    if (e.target.closest('a')) setMenu(false);
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') setMenu(false);
+  });
+
+  // Close when tapping outside the navbar
+  document.addEventListener('click', (e) => {
+    if (navLinks.classList.contains('mobile-open') && !e.target.closest('#navbar')) setMenu(false);
+  });
+
+  // Reset when growing past the mobile breakpoint
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 980) setMenu(false);
+  });
 }
 
 function renderFooter(site) {
