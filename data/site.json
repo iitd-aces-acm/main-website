@@ -1,7 +1,7 @@
 {
   "brand": {
     "name": "ACES-ACM",
-    "logos": ["assets/cse-logo.jpg", "assets/aces.png"]
+    "logos": ["assets/cse-logo.png", "assets/aces.png"]
   },
   "nav": [
     { "label": "Home", "href": "index.html", "page": "home" },

@@ -69,18 +69,9 @@
     "title": "Meet the People Behind ACES-ACM",
     "sub": "A preview of the student team running the society this year.",
     "items": [
-      {
-        "name": "Placeholder One", "role": "President, ACES-ACM", "track": "", "domainLabel": "Core Team",
-        "bio": "Filler bio — leads the society and its overall direction.", "href": "team.html"
-      },
-      {
-        "name": "Placeholder Two", "role": "Vice President, ACES-ACM", "track": "", "domainLabel": "Core Team",
-        "bio": "Filler bio — supports leadership and coordinates verticals.", "href": "team.html"
-      },
-      {
-        "name": "Placeholder Three", "role": "General Secretary, ACES-ACM", "track": "", "domainLabel": "Core Team",
-        "bio": "Filler bio — handles operations and communications.", "href": "team.html"
-      }
+      { "name": "Priyanshi Gupta", "role": "Overall Coordinator", "track": "", "domainLabel": "Core Team", "bio": " leads the society and its overall direction.", "socials": [],"image": "assets/Team/Core_Team_Priyanshi_Gupta.jpeg" },
+        { "name": "Aadi", "role": "Co-OC", "track": "", "domainLabel": "Core Team", "bio": "", "socials": [], "image": "assets/Team/Core_Team_Aadi.jpg" },
+        { "name": "Aditya Narware", "role": "Co-OC", "track": "", "domainLabel": "Core Team", "bio": "", "socials": [] ,"image": "assets/Team/Core_Team_Aditya_Narware.png"}
     ]
   },
   "cta": {

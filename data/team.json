@@ -7,26 +7,56 @@
     {
       "title": "Faculty Advisor",
       "members": [
-        { "name": "Prof. Placeholder", "role": "Faculty Advisor, ACES-ACM · CSE, IIT Delhi", "track": "", "domainLabel": "Faculty", "bio": "Filler bio — guides the society and mentors the student team.", "href": "#", "socials": [{ "label": "Website", "icon": "fa-solid fa-globe", "href": "#" }] }
+        { "name": "Prof. Placeholder", "role": "Faculty Advisor, ACES-ACM · CSE, IIT Delhi", "track": "", "domainLabel": "Faculty", "bio": " guides the society and mentors the student team.", "href": "#", "socials": [{ "label": "Website", "icon": "fa-solid fa-globe", "href": "#" }] }
       ]
     },
     {
       "title": "Office Bearers",
       "members": [
-        { "name": "Placeholder One", "role": "President", "track": "", "domainLabel": "Core Team", "bio": "Filler bio — leads the society and its overall direction.", "socials": [{ "label": "LinkedIn", "icon": "fab fa-linkedin-in", "href": "#" }] },
-        { "name": "Placeholder Two", "role": "Vice President", "track": "", "domainLabel": "Core Team", "bio": "Filler bio — supports leadership and coordinates verticals.", "socials": [{ "label": "LinkedIn", "icon": "fab fa-linkedin-in", "href": "#" }] },
-        { "name": "Placeholder Three", "role": "General Secretary", "track": "", "domainLabel": "Core Team", "bio": "Filler bio — handles operations and communications.", "socials": [{ "label": "LinkedIn", "icon": "fab fa-linkedin-in", "href": "#" }] },
-        { "name": "Placeholder Four", "role": "Treasurer", "track": "", "domainLabel": "Core Team", "bio": "Filler bio — manages finances and sponsorships.", "socials": [{ "label": "LinkedIn", "icon": "fab fa-linkedin-in", "href": "#" }] }
+        { "name": "Priyanshi Gupta", "role": "Overall Coordinator", "track": "", "domainLabel": "Core Team", "bio": " leads the society and its overall direction.", "socials": [],"image": "assets/Team/Core_Team_Priyanshi_Gupta.jpeg" },
+        { "name": "Aadi", "role": "Co-OC", "track": "", "domainLabel": "Core Team", "bio": "", "socials": [], "image": "assets/Team/Core_Team_Aadi.jpg" },
+        { "name": "Aditya Narware", "role": "Co-OC", "track": "", "domainLabel": "Core Team", "bio": "", "socials": [] ,"image": "assets/Team/Core_Team_Aditya_Narware.png"},
+        { "name": "Aniruddha", "role": "Co-OC", "track": "", "domainLabel": "Core Team", "bio": "", "socials": [] ,"image": "assets/Team/Core_Team_"},
+        { "name": "Himanshi Bhandari", "role": "Co-OC", "track": "", "domainLabel": "Core Team", "bio": "", "socials": [] ,"image": "assets/Team/Core_Team_Himanshi_Bhandari.jpg"}
       ]
     },
     {
       "title": "Coordinators",
       "members": [
-        { "name": "Placeholder Five", "role": "Technical Coordinator", "track": "", "domainLabel": "Coordinator", "bio": "Filler bio — runs workshops, dev sessions, and hackathons.", "socials": [] },
-        { "name": "Placeholder Six", "role": "Research Coordinator", "track": "", "domainLabel": "Coordinator", "bio": "Filler bio — leads the symposium and research initiatives.", "socials": [] },
-        { "name": "Placeholder Seven", "role": "Design & Web", "track": "", "domainLabel": "Coordinator", "bio": "Filler bio — handles design, branding, and this website.", "socials": [] },
-        { "name": "Placeholder Eight", "role": "Outreach & Socials", "track": "", "domainLabel": "Coordinator", "bio": "Filler bio — manages outreach, sponsorships, and social events.", "socials": [] }
+        { "name": "Agrim Bansal", "role": " ", "track": "", "domainLabel": "Coordinator", "bio": "", "socials": [], "image": "assets/Team/Coordinator_Agrim_Bansal.jpg" },
+        { "name": "Arnav Meena", "role": " ", "track": "", "domainLabel": "Coordinator", "bio": "", "socials": [], "image": "assets/Team/Coordinator_Arnav_Meena.jpeg" },
+        { "name": "Aryan Gupta", "role": "", "track": "", "domainLabel": "Coordinator", "bio": "", "socials": [], "image": "assets/Team/Coordinator_Aryan_Gupta_.png" },
+        { "name": "Atul Kumar", "role": "", "track": "", "domainLabel": "Coordinator", "bio": "", "socials": [], "image": "assets/Team/Coordinator_Atul_Kumar_.jpg" },
+        { "name": "Hardik Aggarwal", "role": "", "track": "", "domainLabel": "Coordinator", "bio": "", "socials": [], "image": "assets/Team/Coordinator_Hardik_Aggarwal.jpeg" },
+        { "name": "Ishir", "role": " ", "track": "", "domainLabel": "Coordinator", "bio": "", "socials": [], "image": "assets/Team/Coordinator_Ishir.jpeg" },
+        { "name": "Kesar Shah", "role": " ", "track": "", "domainLabel": "Coordinator", "bio": "", "socials": [], "image": "assets/Team/Coordinator_Kesar_Shah.jpeg" },
+        { "name": "Riddhi Motwani", "role": " ", "track": "", "domainLabel": "Coordinator", "bio": "", "socials": [], "image": "assets/Team/Coordinator_Riddhi_Motwani_.jpg" },
+        { "name": "Shaarav Gunsi", "role": " ", "track": "", "domainLabel": "Coordinator", "bio": "", "socials": [], "image": "assets/Team/Coordinator_Shaarav_Gunsi.jpg" },
+        { "name": "Vedant", "role": " ", "track": "", "domainLabel": "Coordinator", "bio": "", "socials": [], "image": "assets/Team/Coordinator_Vedant_.jpg" }
+        
       ]
-    }
+    },
+    {
+      "title": "Executives",
+      "members": [
+        { "name": "Aarti Verma", "role": "", "track": "", "domainLabel": "Executive", "bio": "", "socials": [], "image": "assets/Team/Executive_Aarti_Verma.jpg" },
+        { "name": "Aditya Kumar", "role": "", "track": "", "domainLabel": "Executive", "bio": "", "socials": [], "image": "assets/Team/Executive_Aditya_Kumar.jpg" },
+        { "name": "Anuvesha Singh", "role": " ", "track": "", "domainLabel": "Executive", "bio": "", "socials": [], "image": "assets/Team/Executive_Anuvesha_Singh.jpeg" },
+        { "name": "Aradhya Singwal", "role": "", "track": "", "domainLabel": "Executive", "bio": "", "socials": [], "image": "assets/Team/Executive_Aradhya_Singwal.jpeg" },
+        { "name": "Biboswan Das", "role": "", "track": "", "domainLabel": "Executive", "bio": "", "socials": [], "image": "assets/Team/Executive_Biboswan_Das.jpg" },
+        { "name": "Eivaksh Aggarwal", "role": "", "track": "", "domainLabel": "Executive", "bio": "", "socials": [], "image": "assets/Team/Executive_Eivaksh_Aggarwal_.jpeg" },
+        { "name": "Kshitij Patil", "role": "", "track": "", "domainLabel": "Executive", "bio": "", "socials": [], "image": "assets/Team/Executive_Kshitij_Patil.jpg" },
+        { "name": "Meer Bhuva", "role": "", "track": "", "domainLabel": "Executive", "bio": "", "socials": [], "image": "assets/Team/Executive_Meer_Bhuva.jpeg" },
+        { "name": "Nitin Gupta", "role": "", "track": "", "domainLabel": "Executive", "bio": "", "socials": [], "image": "assets/Team/Executive_Nitin_Gupta_.jpg" },
+        { "name": "Samriddh Dahiya", "role": "", "track": "", "domainLabel": "Executive", "bio": "", "socials": [], "image": "assets/Team/Executive_Samriddh_Dahiya.jpeg" },
+        { "name": "Saumy Maliwal", "role": "", "track": "", "domainLabel": "Executive", "bio": "", "socials": [], "image": "assets/Team/Executive_Saumy_Maliwal_.jpg" },
+        { "name": "Shivansh Vashistha", "role": "", "track": "", "domainLabel": "Executive", "bio": "", "socials": [], "image": "assets/Team/Executive_Shivansh_Vashistha.jpg" },
+        { "name": "Shreeyal Singh", "role": "", "track": "", "domainLabel": "Executive", "bio": "", "socials": [], "image": "assets/Team/Executive_Shreeyal_Singh_.jpg" },
+        { "name": "Vivek Pandey", "role": "", "track": "", "domainLabel": "Executive", "bio": "", "socials": [], "image": "assets/Team/Executive_Vivek_Pandey_.jpg" }
+       
+  ]
+
+}
   ]
 }
+
