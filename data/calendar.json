@@ -3,15 +3,16 @@
     "title": "Calendar",
     "sub": "Upcoming ACES-ACM events and key dates across the academic year."
   },
-  "label": "Academic Year",
+  "label": "Academic Year 2026",
   "title": "What's Coming Up",
-  "sub": "All dates are filler — edit data/calendar.json to update.",
+  "sub": "Stay informed about upcoming events and important dates.",
   "entries": [
-    { "day": "15", "month": "Jan", "title": "Semester Kickoff Meet", "time": "5:00 PM", "venue": "CSE Dept.", "tag": "Social" },
-    { "day": "08", "month": "Feb", "title": "Intro to ML Workshop", "time": "2:00 PM", "venue": "CSE Dept.", "tag": "Workshop" },
-    { "day": "14", "month": "Mar", "title": "ACES Hackathon", "time": "9:00 AM", "venue": "TBD", "tag": "Hackathon" },
-    { "day": "04", "month": "Apr", "title": "CSE Research Symposium — Day 1", "time": "9:45 AM", "venue": "LH114", "tag": "Symposium" },
-    { "day": "05", "month": "Apr", "title": "CSE Research Symposium — Day 2", "time": "10:00 AM", "venue": "LH114", "tag": "Symposium" },
-    { "day": "20", "month": "Apr", "title": "Competitive Coding Contest", "time": "8:00 PM", "venue": "Online", "tag": "Contest" }
+    {"day": "25", "month": "July", "title": "Tour of Stalls", "time": "10:00 AM - 5:00 PM", "venue": "LHC", "tag": "Social" }
+  ],
+  "pastLabel": "Past Events",
+  "pastTitle": "What Happened",
+  "pastSub": "Take a look at previous ACES-ACM events and activities.",
+  "pastEntries": [
+    {"day": "25","month": "July","title": "Tour of Stalls","time": "10:00 AM - 5:00 PM","venue": "LHC","tag": "Social"}
   ]
 }
