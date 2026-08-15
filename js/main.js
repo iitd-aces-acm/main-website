@@ -458,8 +458,10 @@ const pages = {
     ${sectionHead(d.label, d.title, d.sub)}
     <div class="calendar-list">${d.entries.map(row).join('')}</div>
 
-    ${sectionHead(d.pastLabel, d.pastTitle, d.pastSub)}
-    <div class="calendar-list">${d.pastEntries.map(row).join('')}</div>
+    <div style="margin-top: 4rem;">
+      ${sectionHead(d.pastLabel, d.pastTitle, d.pastSub)}
+      <div class="calendar-list">${d.pastEntries.map(row).join('')}</div>
+    </div>
   </div>`;
   },
 
