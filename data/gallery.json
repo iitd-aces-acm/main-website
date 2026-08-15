@@ -4,11 +4,11 @@
     "sub": "Moments from ACES-ACM events through the years. Filter by category below."
   },
   "items": [
-    { "category": "Symposium", "caption": "Research Symposium keynote", "image": "" },
-    { "category": "Symposium", "caption": "Poster exhibition", "image": "" },
-    { "category": "Workshops", "caption": "ML workshop, hands-on session", "image": "" },
+    { "category": "Symposium", "caption": "Research Symposium keynote", "image": "assets/Events/Event_Research_Symposium.jpg" },
+    { "category": "Socials", "caption": "Farewell Dinner", "image": "assets/Events/Event_Farewell_Dinner.jpg" },
+    { "category": "Workshops", "caption": "ML workshop, hands-on session", "image": "assets/Events/Event_Coding.jpeg" },
     { "category": "Workshops", "caption": "Dev session in the lab", "image": "" },
-    { "category": "Hackathons", "caption": "ACES Hackathon overnight", "image": "" },
+    { "category": "Hackathons", "caption": "ACES Hackathon overnight", "image": "assets/Events/Event_Digital_Enigma.jpeg" },
     { "category": "Hackathons", "caption": "Project demos and judging", "image": "" },
     { "category": "Socials", "caption": "Fresher's meet on the lawns", "image": "" },
     { "category": "Socials", "caption": "Game night", "image": "" },

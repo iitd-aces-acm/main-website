@@ -11,17 +11,20 @@
       {
         "name": "CSE Research Symposium", "status": "upcoming", "statusLabel": "Flagship · Upcoming",
         "date": "April 4–5, 2026", "venue": "LH114",
-        "desc": "Our flagship two-day event — keynote talks, faculty research, student presentations, and a poster exhibition."
+        "desc": "Our flagship two-day event — keynote talks, faculty research, student presentations, and a poster exhibition.",
+        "image": "assets/Events/Event_Research_Symposium.jpg"
       },
       {
         "name": "Intro to ML Workshop", "status": "upcoming", "statusLabel": "Upcoming",
         "date": "February 2026", "venue": "CSE Dept.",
-        "desc": "Filler description — a hands-on workshop introducing machine learning fundamentals."
+        "desc": "Filler description — a hands-on workshop introducing machine learning fundamentals.",
+        "image": "assets/Events/Event_Coding.jpeg"
       },
       {
         "name": "ACES Hackathon", "status": "upcoming", "statusLabel": "Upcoming",
         "date": "March 2026", "venue": "TBD",
-        "desc": "Filler description — a 24-hour hackathon open to all CSE students."
+        "desc": "Filler description — a 24-hour hackathon open to all CSE students.",
+        "image":"assets/Events/Event_Digital_Enigma.jpeg"
       },
       {
         "name": "Industry Speaker Series", "status": "past", "statusLabel": "Past",
@@ -36,7 +39,8 @@
       {
         "name": "Competitive Coding Contest", "status": "past", "statusLabel": "Past",
         "date": "October 2025", "venue": "Online",
-        "desc": "Filler description — a timed algorithmic contest with prizes."
+        "desc": "Filler description — a timed algorithmic contest with prizes.",
+        "image":"assets/Events/Event_Coding_2.jpeg"
       }
     ]
   },
