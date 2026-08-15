@@ -24,7 +24,7 @@
     "title": "The Home of CSE Student Life at IIT Delhi",
     "body": [
       "ACES-ACM is the departmental student society of Computer Science & Engineering at IIT Delhi, and the department's ACM Student Chapter. We bring together students across every year and programme.",
-      "Through the year we run technical talks, workshops, research initiatives, hackathons, and socials — including our flagship CSE Research Symposium. This is filler copy; edit data/home.json to update."
+      "Through the year we run technical talks, workshops, research initiatives, hackathons, and socials — including our flagship CSE Research Symposium."
     ],
     "pills": [
       { "icon": "fa-solid fa-building-columns", "label": "Affiliation", "value": "Dept. of CSE, IIT Delhi · ACM Student Chapter" },
@@ -69,7 +69,7 @@
     "title": "Meet the People Behind ACES-ACM",
     "sub": "A preview of the student team running the society this year.",
     "items": [
-      { "name": "Priyanshi Gupta", "role": "Overall Coordinator", "track": "", "domainLabel": "Core Team", "bio": " leads the society and its overall direction.", "socials": [],"image": "assets/Team/Core_Team_Priyanshi_Gupta.jpeg" },
+      { "name": "Priyanshi Gupta", "role": "Overall Coordinator", "track": "", "domainLabel": "Core Team", "bio": "Leads the society and its overall direction.", "socials": [],"image": "assets/Team/Core_Team_Priyanshi_Gupta.jpeg" },
         { "name": "Aadi", "role": "Co-OC", "track": "", "domainLabel": "Core Team", "bio": "", "socials": [], "image": "assets/Team/Core_Team_Aadi.jpg" },
         { "name": "Aditya Narware", "role": "Co-OC", "track": "", "domainLabel": "Core Team", "bio": "", "socials": [] ,"image": "assets/Team/Core_Team_Aditya_Narware.png"}
     ]
