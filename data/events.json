@@ -45,46 +45,5 @@
         "image":"assets/Events/Event_Coding_2.jpeg"
       }
     ]
-  },
-  "schedule": {
-    "label": "Flagship Event",
-    "title": "CSE Research Symposium '26 — Schedule",
-    "sub": "The full two-day programme of our flagship event. Switch between days below.",
-    "days": [
-      {
-        "tab": "Day 1 — April 4",
-        "dateNum": "04",
-        "dateLabel": "Saturday · April 4, 2026",
-        "venue": "Venue: LH114, Lecture Hall Complex",
-        "rows": [
-          { "time": "9:45 AM – 10:00 AM", "name": "Settling-in and Opening Remarks", "location": "LH114" },
-          { "time": "10:00 AM – 11:00 AM", "name": "Keynote — Speaker One", "location": "LH114" },
-          { "time": "11:00 AM – 11:30 AM", "name": "Coffee Break", "location": "LH114 Foyer" },
-          { "time": "11:30 AM – 12:00 PM", "name": "Student Presentations", "subs": ["2 talks · 15 mins each", "Presenter: Filler A", "Presenter: Filler B"], "location": "LH114" },
-          { "time": "12:00 PM – 1:00 PM", "name": "Talk — Speaker Two", "location": "LH114" },
-          { "time": "1:00 PM – 2:00 PM", "name": "Lunch", "location": "LH114 Foyer" },
-          { "time": "2:00 PM – 3:00 PM", "name": "Talk — Speaker Three", "location": "LH114" },
-          { "time": "3:30 PM – 4:30 PM", "name": "Student Presentations", "subs": ["4 talks · 15 mins each"], "location": "LH114" },
-          { "time": "4:30 PM – 5:30 PM", "name": "Coffee Break + Posters", "location": "LH114 Foyer" }
-        ]
-      },
-      {
-        "tab": "Day 2 — April 5",
-        "dateNum": "05",
-        "dateLabel": "Sunday · April 5, 2026",
-        "venue": "Venue: LH114, Lecture Hall Complex",
-        "rows": [
-          { "time": "10:00 AM – 11:00 AM", "name": "Keynote — Speaker Four", "location": "LH114" },
-          { "time": "11:00 AM – 11:30 AM", "name": "Coffee Break", "location": "LH114 Foyer" },
-          { "time": "11:30 AM – 12:00 PM", "name": "Talk — Speaker Five", "location": "LH114" },
-          { "time": "12:00 PM – 1:00 PM", "name": "Talk — Speaker Six", "location": "LH114" },
-          { "time": "1:00 PM – 2:00 PM", "name": "Lunch", "location": "LH114 Foyer" },
-          { "time": "2:00 PM – 3:00 PM", "name": "Talk — Speaker Seven", "location": "LH114" },
-          { "time": "3:00 PM – 4:15 PM", "name": "Student Presentations", "subs": ["5 talks · 15 mins each"], "location": "LH114" },
-          { "time": "4:15 PM – 4:45 PM", "name": "Tech Quiz", "location": "LH114" },
-          { "time": "4:45 PM – 6:00 PM", "name": "Coffee Break + Posters", "location": "LH114 Foyer" }
-        ]
-      }
-    ]
   }
 }
