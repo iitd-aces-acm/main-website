@@ -454,10 +454,13 @@ const pages = {
       </div>`;
 
     $('#calendar-main').innerHTML = `
-      <div class="container">
-        ${sectionHead(d.label, d.title, d.sub)}
-        <div class="calendar-list">${d.entries.map(row).join('')}</div>
-      </div>`;
+  <div class="container">
+    ${sectionHead(d.label, d.title, d.sub)}
+    <div class="calendar-list">${d.entries.map(row).join('')}</div>
+
+    ${sectionHead(d.pastLabel, d.pastTitle, d.pastSub)}
+    <div class="calendar-list">${d.pastEntries.map(row).join('')}</div>
+  </div>`;
   },
 
   async newsletter(site) {
