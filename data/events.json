@@ -15,31 +15,33 @@
         "image": "assets/Events/Event_Research_Symposium.jpg"
       },
       {
-        "name": "Intro to ML Workshop", "status": "upcoming", "statusLabel": "Upcoming",
-        "date": "February 2026", "venue": "CSE Dept.",
-        "desc": "Filler description — a hands-on workshop introducing machine learning fundamentals.",
-        "image": "assets/Events/Event_Coding.jpeg"
+        "name": "Department Trek", "status": "upcoming", "statusLabel": "Upcoming",
+        "date": "December 2026", "venue": "CSE Dept.",
+        "desc": "Yearly Departmental Trek for the adventurous and daring.",
+        "image": "assets/Events/Event_Trek.png"
       },
       {
-        "name": "ACES Hackathon", "status": "upcoming", "statusLabel": "Upcoming",
+        "name": "Digital Enigma", "status": "upcoming", "statusLabel": "Upcoming",
         "date": "March 2026", "venue": "TBD",
-        "desc": "Filler description — a 24-hour hackathon open to all CSE students.",
+        "desc": "Digital Enigma is a fast-paced, annual puzzle and problem-solving competition held during Tryst, the technical festival of IIT Delhi.",
         "image":"assets/Events/Event_Digital_Enigma.jpeg"
       },
       {
-        "name": "Industry Speaker Series", "status": "past", "statusLabel": "Past",
-        "date": "November 2025", "venue": "LH121",
-        "desc": "Filler description — talks from engineers and researchers working in the industry."
+        "name": "IMC Low Latency Challenge", "status": "past", "statusLabel": "Past",
+        "date": "January 2026", "venue": "LH121",
+        "desc": "The IMC Low-Latency Challenge at IITD was a 4-hour intense competitive coding and software optimization event held at the Indian Institute of Technology, Delhi.",
+        "image": "assets/Events/Event_IMC.png"
       },
       {
-        "name": "Fresher's Meet", "status": "past", "statusLabel": "Past",
-        "date": "August 2025", "venue": "CSE Lawns",
-        "desc": "Filler description — welcoming the incoming batch to the CSE community."
+        "name": "Fresher's Party", "status": "past", "statusLabel": "Past",
+        "date": "October 2025", "venue": "Off Campus",
+        "desc": "Welcoming the incoming batch to the CSE community with a big BANG.",
+        "image":"assets/Events/Event_Freshers_Party.jpeg"
       },
       {
         "name": "Competitive Coding Contest", "status": "past", "statusLabel": "Past",
         "date": "October 2025", "venue": "Online",
-        "desc": "Filler description — a timed algorithmic contest with prizes.",
+        "desc": "A timed algorithmic contest with prizes.",
         "image":"assets/Events/Event_Coding_2.jpeg"
       }
     ]

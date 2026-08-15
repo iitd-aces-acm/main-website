@@ -7,11 +7,11 @@
     { "category": "Symposium", "caption": "Research Symposium keynote", "image": "assets/Events/Event_Research_Symposium.jpg" },
     { "category": "Socials", "caption": "Farewell Dinner", "image": "assets/Events/Event_Farewell_Dinner.jpg" },
     { "category": "Workshops", "caption": "ML workshop, hands-on session", "image": "assets/Events/Event_Coding.jpeg" },
-    { "category": "Workshops", "caption": "Dev session in the lab", "image": "" },
-    { "category": "Hackathons", "caption": "ACES Hackathon overnight", "image": "assets/Events/Event_Digital_Enigma.jpeg" },
-    { "category": "Hackathons", "caption": "Project demos and judging", "image": "" },
-    { "category": "Socials", "caption": "Fresher's meet on the lawns", "image": "" },
-    { "category": "Socials", "caption": "Game night", "image": "" },
-    { "category": "Talks", "caption": "Industry speaker series", "image": "" }
+    { "category": "Workshops", "caption": "IMC Low Latency Challenge", "image": "assets/Events/Event_IMC.png" },
+    { "category": "Hackathons", "caption": "Digital Enigma", "image": "assets/Events/Event_Digital_Enigma.jpeg" },
+    { "category": "Socials", "caption": "Department Trek", "image": "assets/Events/Event_Trek.png" },
+    { "category": "Socials", "caption": "Fresher's Party", "image": "assets/Events/Event_Freshers_Party.jpeg" },
+    { "category": "Socials", "caption": "Fresher's Party", "image": "assets/Events/Event_Freshers_Party_2.jpeg" },
+    { "category": "Socials", "caption": "Department Trek", "image": "assets/Events/Event_Trek_2.png" }
   ]
 }

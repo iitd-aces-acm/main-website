@@ -7,7 +7,7 @@
     {
       "title": "Faculty Advisor",
       "members": [
-        { "name": "Prof.", "role": "Faculty Advisor, ACES-ACM · CSE, IIT Delhi", "track": "", "domainLabel": "Faculty", "bio": " guides the society and mentors the student team.", "href": "#", "socials": [{ "label": "Website", "icon": "fa-solid fa-globe", "href": "#" }] }
+        { "name": "Prof. Rohit Vaish", "role": "Faculty Advisor, ACES-ACM · CSE, IIT Delhi", "track": "", "domainLabel": "Faculty", "bio": " guides the society and mentors the student team.", "href": "#", "socials": [{ "label": "Website", "icon": "fa-solid fa-globe", "href": "#" }], "image":"assets/Team/Prof_Rohit_Vaish.jpg" }
       ]
     },
     {
