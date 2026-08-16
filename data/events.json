@@ -6,7 +6,7 @@
   "list": {
     "label": "What We Run",
     "title": "Our Events",
-    "sub": "A selection across the academic year. Edit data/events.json to add or update events.",
+    "sub": "Explore events, workshops, and activities happening throughout the year.",
     "items": [
       {
         "name": "CSE Research Symposium", "status": "upcoming", "statusLabel": "Flagship · Upcoming",
