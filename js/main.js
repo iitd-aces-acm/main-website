@@ -490,8 +490,7 @@ const pages = {
           </form>
           <p id="newsletterMsg" style="font-size:0.85rem;color:var(--tag-theory);display:none">Thanks — you're subscribed! (demo only)</p>
         </div>
-        ${sectionHead(d.issues.label, d.issues.title, d.issues.sub)}
-        <div class="issues-grid">${d.issues.items.map(issue).join('')}</div>
+        
       </div>`;
 
     const form = $('#newsletterForm');
