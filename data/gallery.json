@@ -1,7 +1,7 @@
 {
   "hero": {
     "title": "Gallery",
-    "sub": "Moments from ACES-ACM events through the years. Filter by category below."
+    "sub": "Moments from ACES-ACM events through the years."
   },
   "items": [
     { "category": "Symposium", "caption": "Research Symposium keynote", "image": "assets/Events/Event_Research_Symposium.jpg" },
