@@ -7,7 +7,17 @@
   "title": "What's Coming Up",
   "sub": "Stay informed about upcoming events and important dates.",
   "entries": [
-    {"day": "24", "month": "Aug", "title": "Intern Ke Fundae", "time": "6:30 PM", "venue": "LHC", "tag": "Social" }
+     {"day": "21", "month": "Aug", "title": "Research Intern Ke Fundae", "time": "6:30 PM", "venue": "LHC", "tag": "Professional" },
+    {"day": "24", "month": "Aug", "title": "Intern Ke Fundae", "time": "6:30 PM", "venue": "LHC", "tag": "Social" },
+    {"day": "26", "month": "Aug", "title": "Alumni Talk - 2", "time": "6:30 PM", "venue": "LHC", "tag": "Social" },
+    {"day": "28", "month": "Aug", "title": "FROSH", "time": "6:30 PM", "venue": "LHC", "tag": "Social" },
+    {"day": "2", "month": "Sep", "title": "Alumni Talk - 3", "time": "6:30 PM", "venue": "LHC", "tag": "Social" },
+    {"day": "9", "month": "Sep", "title": "Alumni Talk - 4", "time": "6:30 PM", "venue": "LHC", "tag": "Social" },
+    {"day": "21", "month": "Sep", "title": "Alumni Talk - 5", "time": "6:30 PM", "venue": "LHC", "tag": "Social" },
+    {"day": "19", "month": "Oct", "title": "Alumni Talk - 6", "time": "6:30 PM", "venue": "LHC", "tag": "Social" }
+    
+    
+    
   ],
   "pastLabel": "Past Events",
   "pastTitle": "What Happened",
