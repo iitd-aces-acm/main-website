@@ -40,6 +40,8 @@
       "title": "Executives",
       "members": [
         { "name": "Aarti Verma", "role": "", "track": "", "domainLabel": "Executive", "bio": "", "socials": [], "image": "assets/Team/Executive_Aarti_Verma.jpg" },
+        { "name": "Aarush Aggarwal", "role": "", "track": "", "domainLabel": "Executive", "bio": "", "socials": [], "image": "assets/Team/Executive_Aarush_Aggarwal.jpeg" },
+        { "name": "Aarush Mithal", "role": "", "track": "", "domainLabel": "Executive", "bio": "", "socials": [], "image": "assets/Team/Executive_Aarush_Mithal.jpeg" },
         { "name": "Aditya Kumar", "role": "", "track": "", "domainLabel": "Executive", "bio": "", "socials": [], "image": "assets/Team/Executive_Aditya_Kumar.jpg" },
         { "name": "Anuvesha Singh", "role": " ", "track": "", "domainLabel": "Executive", "bio": "", "socials": [], "image": "assets/Team/Executive_Anuvesha_Singh.jpeg" },
         { "name": "Aradhya Singwal", "role": "", "track": "", "domainLabel": "Executive", "bio": "", "socials": [], "image": "assets/Team/Executive_Aradhya_Singwal.jpeg" },
@@ -52,6 +54,7 @@
         { "name": "Saumy Maliwal", "role": "", "track": "", "domainLabel": "Executive", "bio": "", "socials": [], "image": "assets/Team/Executive_Saumy_Maliwal_.jpg" },
         { "name": "Shivansh Vashistha", "role": "", "track": "", "domainLabel": "Executive", "bio": "", "socials": [], "image": "assets/Team/Executive_Shivansh_Vashistha.jpg" },
         { "name": "Shreeyal Singh", "role": "", "track": "", "domainLabel": "Executive", "bio": "", "socials": [], "image": "assets/Team/Executive_Shreeyal_Singh_.jpg" },
+        { "name": "Sourish Srivastava", "role": "", "track": "", "domainLabel": "Executive", "bio": "", "socials": [], "image": "assets/Team/Executive_Sourish_Srivastava.jpeg" },
         { "name": "Vivek Pandey", "role": "", "track": "", "domainLabel": "Executive", "bio": "", "socials": [], "image": "assets/Team/Executive_Vivek_Pandey_.jpg" }
        
   ]
