@@ -319,11 +319,14 @@ section[id] {
   gap: 0.75rem;
 }
 
-/* the CSE logo has black lettering, so give logos a light chip at night */
-[data-theme="dark"] .nav-logo-img {
-  background: #fff;
-  border-radius: var(--r-xs);
-  padding: 3px;
+/* logos with a night-mode version: show the one matching the theme */
+.nav-logo-img.logo-dark,
+[data-theme="dark"] .nav-logo-img.logo-light {
+  display: none;
+}
+
+[data-theme="dark"] .nav-logo-img.logo-dark {
+  display: block;
 }
 
 .nav-hamburger {
@@ -850,36 +853,6 @@ a.speaker-card {
 }
 
 /* ═══ GALLERY ═════════════════════════════════════════════════════ */
-.gallery-filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 2.5rem;
-}
-
-.gallery-filter {
-  font-size: 0.8rem;
-  font-weight: 500;
-  padding: 0.42rem 1.05rem;
-  border-radius: var(--r-pill);
-  border: 1px solid var(--border);
-  background: var(--surface);
-  color: var(--muted);
-  cursor: pointer;
-  transition: background var(--dur) var(--ease), color var(--dur) var(--ease), border-color var(--dur) var(--ease);
-}
-
-.gallery-filter:hover {
-  border-color: var(--heading);
-  color: var(--heading);
-}
-
-.gallery-filter.active {
-  background: var(--accent);
-  color: #fff;
-  border-color: var(--accent);
-}
-
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

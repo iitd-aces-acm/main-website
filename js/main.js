@@ -9,7 +9,6 @@
 
 /* ---- tiny helpers --------------------------------------------------- */
 const $ = (sel, root = document) => root.querySelector(sel);
-const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
 
 // Escape text so JSON content can't inject markup.
 function esc(str = '') {
@@ -47,8 +46,12 @@ function renderNavbar(site) {
     })
     .join('');
 
+  // A logo is a path, or { src, dark } to swap in a night-mode version (CSS picks which shows).
   const logos = site.brand.logos
-    .map((src) => `<img src="${esc(src)}" alt="logo" class="nav-logo-img" />`)
+    .map((l) => (typeof l === 'string' ? { src: l } : l))
+    .map((l) => l.dark
+      ? `<img src="${esc(l.src)}" alt="logo" class="nav-logo-img logo-light" /><img src="${esc(l.dark)}" alt="logo" class="nav-logo-img logo-dark" />`
+      : `<img src="${esc(l.src)}" alt="logo" class="nav-logo-img" />`)
     .join('<div class="nav-sep"></div>');
 
   mount.innerHTML = `
@@ -355,7 +358,7 @@ const pages = {
     const item = (i, linkEvent) => {
       const tag = linkEvent && i.event ? 'a' : 'div';
       return `
-      <${tag} class="gallery-item" data-cat="${esc(i.category || '')}"${tag === 'a' ? ` href="${galleryHref(i.event)}"` : ''}>
+      <${tag} class="gallery-item"${tag === 'a' ? ` href="${galleryHref(i.event)}"` : ''}>
         ${i.image ? `<img src="${esc(i.image)}" alt="${esc(i.caption || '')}" />` : '<div class="gallery-placeholder"><i class="fa-regular fa-image"></i></div>'}
         <div class="gallery-overlay"><span class="gallery-caption">${esc(i.caption || '')}</span></div>
       </${tag}>`;
@@ -383,26 +386,10 @@ const pages = {
       return;
     }
 
-    const cats = ['All', ...new Set(d.items.map((i) => i.category).filter(Boolean))];
-    const filters = cats
-      .map((c, i) => `<button class="gallery-filter ${i === 0 ? 'active' : ''}" data-cat="${esc(c)}">${esc(c)}</button>`)
-      .join('');
-
     $('#gallery-main').innerHTML = `
       <div class="container">
-        <div class="gallery-filters">${filters}</div>
         <div class="gallery-grid">${d.items.map((i) => item(i, true)).join('')}</div>
       </div>`;
-
-    $$('#gallery-main .gallery-filter').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const cat = btn.dataset.cat;
-        $$('#gallery-main .gallery-filter').forEach((b) => b.classList.toggle('active', b === btn));
-        $$('#gallery-main .gallery-item').forEach((it) => {
-          it.style.display = cat === 'All' || it.dataset.cat === cat ? '' : 'none';
-        });
-      });
-    });
   },
 };
 

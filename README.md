@@ -16,7 +16,7 @@ boilerplate/
 ├── index.html          landing page (a bit of everything)
 ├── events.html         upcoming + past events (sorted by date)
 ├── team.html           faculty, organisers, volunteers
-├── gallery.html        filterable photo gallery
+├── gallery.html        photo gallery (+ per-event view)
 ├── css/
 │   └── styles.css      all styling (shared across pages)
 ├── js/
@@ -78,7 +78,7 @@ Any static host works too (GitHub Pages, Netlify, Vercel, nginx, …).
 
 `assets/` is currently empty. Add your images and update the paths in the JSON:
 
-- `site.json` → `brand.logos` (navbar logos)
+- `site.json` → `brand.logos` (navbar logos; each can be a path, or `{ "src": ..., "dark": ... }` to use a different image in night mode)
 - `home.json` → `hero.poster` (poster beside the title; empty shows a placeholder)
 - `home.json` → `whatWeDo.photos` (list of up to 4 images beside the What We Do links; 1 fills the slot, 2–4 make a collage)
 - `team.json` / `home.json` speakers → `image` per person

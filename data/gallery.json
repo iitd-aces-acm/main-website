@@ -4,14 +4,14 @@
     "sub": "Moments from ACES-ACM events through the years."
   },
   "items": [
-    { "category": "Symposium", "event": "research-symposium", "caption": "Research Symposium keynote", "image": "assets/Events/Event_Research_Symposium.jpg" },
-    { "category": "Socials", "caption": "Farewell Dinner", "image": "assets/Events/Event_Farewell_Dinner.jpg" },
-    { "category": "Workshops", "caption": "ML workshop, hands-on session", "image": "assets/Events/Event_Coding.jpeg" },
-    { "category": "Workshops", "event": "imc-low-latency", "caption": "IMC Low Latency Challenge", "image": "assets/Events/Event_IMC.png" },
-    { "category": "Hackathons", "event": "digital-enigma", "caption": "Digital Enigma", "image": "assets/Events/Event_Digital_Enigma.jpeg" },
-    { "category": "Socials", "event": "department-trek", "caption": "Department Trek", "image": "assets/Events/Event_Trek.png" },
-    { "category": "Socials", "event": "freshers-party", "caption": "Fresher's Party", "image": "assets/Events/Event_Freshers_Party.jpeg" },
-    { "category": "Socials", "event": "freshers-party", "caption": "Fresher's Party", "image": "assets/Events/Event_Freshers_Party_2.jpeg" },
-    { "category": "Socials", "event": "department-trek", "caption": "Department Trek", "image": "assets/Events/Event_Trek_2.png" }
+    { "event": "research-symposium", "caption": "Research Symposium keynote", "image": "assets/Events/Event_Research_Symposium.jpg" },
+    { "caption": "Farewell Dinner", "image": "assets/Events/Event_Farewell_Dinner.jpg" },
+    { "caption": "ML workshop, hands-on session", "image": "assets/Events/Event_Coding.jpeg" },
+    { "event": "imc-low-latency", "caption": "IMC Low Latency Challenge", "image": "assets/Events/Event_IMC.png" },
+    { "event": "digital-enigma", "caption": "Digital Enigma", "image": "assets/Events/Event_Digital_Enigma.jpeg" },
+    { "event": "department-trek", "caption": "Department Trek", "image": "assets/Events/Event_Trek.png" },
+    { "event": "freshers-party", "caption": "Fresher's Party", "image": "assets/Events/Event_Freshers_Party.jpeg" },
+    { "event": "freshers-party", "caption": "Fresher's Party", "image": "assets/Events/Event_Freshers_Party_2.jpeg" },
+    { "event": "department-trek", "caption": "Department Trek", "image": "assets/Events/Event_Trek_2.png" }
   ]
 }
