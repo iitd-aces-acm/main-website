@@ -54,18 +54,35 @@ function renderNavbar(site) {
   mount.innerHTML = `
     <div class="container">
       <div class="nav-inner">
-        <a class="nav-logos" href="index.html">
+        <a class="nav-logos" href="index.html" aria-label="${esc(site.brand.name)} home">
           ${logos}
-          <div class="nav-sep" style="margin-left:0.5rem"></div>
-          <span class="nav-brand">${esc(site.brand.name)}</span>
         </a>
         <ul class="nav-links" id="navLinks">${links}</ul>
-        <button class="nav-hamburger" id="hamburger" type="button"
-          aria-label="Toggle navigation menu" aria-controls="navLinks" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
+        <div class="nav-actions">
+          <button class="theme-toggle" id="themeToggle" type="button"></button>
+          <button class="nav-hamburger" id="hamburger" type="button"
+            aria-label="Toggle navigation menu" aria-controls="navLinks" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
       </div>
     </div>`;
+
+  // Night mode toggle. The <head> script applies the saved/OS theme before paint;
+  // this keeps the button in sync and saves the choice.
+  const themeBtn = $('#themeToggle');
+  const syncThemeBtn = () => {
+    const dark = document.documentElement.dataset.theme === 'dark';
+    themeBtn.innerHTML = `<i class="fa-solid ${dark ? 'fa-sun' : 'fa-moon'}"></i>`;
+    themeBtn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+  };
+  themeBtn.addEventListener('click', () => {
+    const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    try { localStorage.setItem('theme', next); } catch (e) { /* private mode: just don't persist */ }
+    syncThemeBtn();
+  });
+  syncThemeBtn();
 
   const hamburger = $('#hamburger');
   const navLinks = $('#navLinks');
@@ -100,57 +117,35 @@ function renderNavbar(site) {
   });
 }
 
+// Footer: columns of links or plain text lines, then a copyright bar.
 function renderFooter(site) {
   const mount = $('#footer-mount');
-  if (!mount) return;
+  if (!mount || !site.footer) return;
   const f = site.footer;
 
-  const cols = f.columns
+  const link = (l) => {
+    const external = /^https?:/.test(l.href);
+    return `<li><a href="${esc(l.href)}"${external ? ' target="_blank" rel="noopener"' : ''}>${esc(l.label)}</a></li>`;
+  };
+  const sections = f.sections
     .map(
-      (c) => `
+      (sec) => `
       <div class="footer-col">
-        <h4>${esc(c.title)}</h4>
-        <ul class="footer-links">
-          ${c.links.map((l) => `<li><a href="${esc(l.href)}">${esc(l.label)}</a></li>`).join('')}
-        </ul>
+        <h4>${esc(sec.title)}</h4>
+        ${sec.links ? `<ul class="footer-links">${sec.links.map(link).join('')}</ul>` : ''}
+        ${sec.lines ? `<p class="footer-text">${sec.lines.map(esc).join('<br />')}</p>` : ''}
       </div>`
     )
     .join('');
 
-  const socials = site.socials
-    .map((s) => `<a href="${esc(s.href)}" class="footer-social" aria-label="${esc(s.label)}"><i class="${esc(s.icon)}"></i></a>`)
-    .join('');
-
   mount.innerHTML = `
     <div class="container">
-      <div class="footer-grid">
-        <div>
-          <div class="footer-brand-name">${esc(site.brand.name)}</div>
-          <div class="footer-brand-sub">${f.blurb}</div>
-        </div>
-        ${cols}
-      </div>
-      <div class="footer-bottom">
-        <span>${esc(f.copyright)}</span>
-        <div class="footer-socials">${socials}</div>
-      </div>
+      <div class="footer-grid">${sections}</div>
+      <div class="footer-bottom">${esc(f.copyright)}</div>
     </div>`;
 }
 
 /* ---- generic component builders (reused across pages) --------------- */
-function trackCard(d) {
-  const topics = (d.topics || []).map((t) => `<span class="topic-tag">${esc(t)}</span>`).join('');
-  const badge = d.badge ? `<span class="domain-day-badge">${esc(d.badge)}</span>` : '';
-  return `
-    <div class="domain-card">
-      ${badge}
-      <div class="domain-icon ${esc(d.track || '')}"><i class="${esc(d.icon)}"></i></div>
-      <h3 class="domain-title">${esc(d.title)}</h3>
-      <p class="domain-desc">${esc(d.desc)}</p>
-      <div class="domain-topics">${topics}</div>
-    </div>`;
-}
-
 function speakerCard(p) {
   const img = p.image
     ? `<img src="${esc(p.image)}" alt="${esc(p.name)}" class="${p.noCrop ? 'no-crop' : ''}" />`
@@ -182,26 +177,66 @@ function speakerCard(p) {
     </${tag}>`;
 }
 
-function eventCard(e) {
+function eventCard(e, photos = 0, past = false) {
+  const linked = e.id && photos > 0;
+  const tag = linked ? 'a' : 'div';
+  const status = `${e.badge ? `${e.badge} · ` : ''}${past ? 'Past' : 'Upcoming'}`;
   return `
-    <div class="event-card">
-      <div class="event-card-img">${e.image ? `<img src="${esc(e.image)}" alt="${esc(e.name)}" />` : ''}</div>
+    <${tag} class="event-card"${linked ? ` href="${galleryHref(e.id)}"` : ''}>
+      ${e.image ? `<div class="event-card-img"><img src="${esc(e.image)}" alt="${esc(e.name)}" /></div>` : ''}
       <div class="event-card-body">
-        <span class="event-status ${esc(e.status || '')}">${esc(e.statusLabel || e.status || '')}</span>
+        <span class="event-status ${past ? 'past' : 'upcoming'}">${esc(status)}</span>
         <h3 class="event-name">${esc(e.name)}</h3>
         <div class="event-meta">
-          <span><i class="fa-regular fa-calendar"></i> ${esc(e.date)}</span>
-          <span><i class="fa-solid fa-location-dot"></i> ${esc(e.venue)}</span>
+          <span><i class="fa-regular fa-calendar"></i> ${esc(eventDateText(e))}</span>
+          ${e.time ? `<span><i class="fa-regular fa-clock"></i> ${esc(e.time)}</span>` : ''}
+          ${e.venue ? `<span><i class="fa-solid fa-location-dot"></i> ${esc(e.venue)}</span>` : ''}
         </div>
-        <p class="event-desc">${esc(e.desc)}</p>
+        ${e.desc ? `<p class="event-desc">${esc(e.desc)}</p>` : ''}
       </div>
-    </div>`;
+    </${tag}>`;
 }
+
+/* ---- event ↔ gallery linking ---------------------------------------- */
+// Gallery items tag themselves with an event id ("event": "freshers-party");
+// this counts photos per event so pages only link to galleries that exist.
+function photoCounts(gallery) {
+  const counts = {};
+  for (const i of gallery?.items || []) if (i.event) counts[i.event] = (counts[i.event] || 0) + 1;
+  return counts;
+}
+
+const galleryHref = (id) => `gallery.html?event=${encodeURIComponent(id)}`;
+
+const photoLabel = (n) => `${n} photo${n === 1 ? '' : 's'}`;
+
+// Event dates are "YYYY-MM-DD", or "YYYY-MM" when only the month is known
+// (then the event counts as upcoming until that month ends).
+function eventSpan(date) {
+  const [y, m, d] = date.split('-').map(Number);
+  return d
+    ? { start: new Date(y, m - 1, d), end: new Date(y, m - 1, d) }
+    : { start: new Date(y, m - 1, 1), end: new Date(y, m, 0) };
+}
+
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December'];
+
+// Shown on cards: "dateLabel" if given, else "19 October 2026" / "December 2026".
+function eventDateText(e) {
+  if (e.dateLabel) return e.dateLabel;
+  const [y, m, d] = e.date.split('-').map(Number);
+  return `${d ? `${d} ` : ''}${MONTHS[m - 1]} ${y}`;
+}
+
+// Dashed box shown where a photo hasn't been added yet.
+const photoPlaceholder = (label) =>
+  `<div class="photo-placeholder"><i class="fa-regular fa-image"></i><span>${esc(label)}</span></div>`;
 
 /* ---- section header helper ----------------------------------------- */
 function sectionHead(label, title, sub) {
   return `
-    <p class="section-label">${esc(label)}</p>
+    ${label ? `<p class="section-label">${esc(label)}</p>` : ''}
     <h2 class="section-title">${esc(title)}</h2>
     <div class="divider"></div>
     ${sub ? `<p class="section-sub">${esc(sub)}</p>` : ''}`;
@@ -212,7 +247,6 @@ function pageHero(site, data) {
   if (!mount || !data.hero) return;
   mount.innerHTML = `
     <div class="container">
-      <div class="breadcrumb"><a href="index.html">Home</a> / ${esc(data.hero.title)}</div>
       <h1 class="page-hero-title">${esc(data.hero.title)}</h1>
       ${data.hero.sub ? `<p class="page-hero-sub">${esc(data.hero.sub)}</p>` : ''}
     </div>`;
@@ -224,58 +258,36 @@ const pages = {
     const d = await loadJSON('home');
     if (!d) return;
 
-    // hero
+    // hero (an empty "poster" keeps the slot as a placeholder)
+    const poster = d.hero.poster
+      ? `<img src="${esc(d.hero.poster)}" alt="${esc(d.hero.title)} poster" />`
+      : photoPlaceholder('Poster');
     $('#hero-mount').innerHTML = `
       <div class="container">
         <div class="hero-grid">
-          <div class="hero-content">
-            <div class="hero-eyebrow"><i class="fa-solid fa-circle-dot"></i> ${esc(d.hero.eyebrow)}</div>
-            <h1 class="hero-title">${d.hero.title}</h1>
-            <p class="hero-org">${d.hero.org}</p>
-            <div class="hero-meta">
-              ${d.hero.meta.map((m) => `<div class="hero-meta-item"><i class="${esc(m.icon)}"></i><span>${esc(m.text)}</span></div>`).join('')}
-            </div>
-            <div class="hero-actions">
-              ${d.hero.actions.map((a) => `<a href="${esc(a.href)}" class="btn ${esc(a.style)}"><i class="${esc(a.icon)}"></i> ${esc(a.label)}</a>`).join('')}
-            </div>
-          </div>
-          <div class="hero-visual">
-            <div class="hero-card">
-              <div class="hero-card-img"><img src="${esc(d.hero.image)}" alt="poster" /></div>
-              <div class="hero-card-body">
-                <div class="hero-stats">
-                  ${d.hero.stats.map((s) => `<div class="hero-stat"><div class="hero-stat-num">${esc(s.num)}</div><div class="hero-stat-label">${esc(s.label)}</div></div>`).join('')}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>`;
-
-    // about snippet
-    $('#home-about').innerHTML = `
-      <div class="container">
-        <div class="about-grid">
           <div>
-            ${sectionHead(d.about.label, d.about.title)}
-            <div class="about-body">${d.about.body.map((p) => `<p>${esc(p)}</p>`).join('')}</div>
-            <a href="about.html" class="btn btn-outline mt-2"><i class="fa-solid fa-arrow-right"></i> Learn more</a>
+            <h1 class="hero-title">${d.hero.title}</h1>
+            <p class="hero-intro">${esc(d.hero.intro)}</p>
           </div>
-          <div class="about-sidebar">
-            ${d.about.pills.map((p) => `
-              <div class="info-pill">
-                <div class="info-pill-icon"><i class="${esc(p.icon)}"></i></div>
-                <div class="info-pill-text"><strong>${esc(p.label)}</strong><span>${esc(p.value)}</span></div>
-              </div>`).join('')}
-          </div>
+          <div class="hero-poster${d.hero.poster ? '' : ' empty'}">${poster}</div>
         </div>
       </div>`;
 
-    // tracks
-    $('#home-tracks').innerHTML = `
+    // what we do: photo slot (none = placeholder, 1 = single, 2–4 = collage) + page links
+    const w = d.whatWeDo;
+    const shots = (w.photos || []).slice(0, 4);
+    const photoCls = shots.length ? `count-${shots.length}${shots.length === 3 ? ' odd' : ''}` : 'empty';
+    $('#home-what-we-do').innerHTML = `
       <div class="container">
-        ${sectionHead(d.tracks.label, d.tracks.title, d.tracks.sub)}
-        <div class="domains-grid">${d.tracks.items.map(trackCard).join('')}</div>
+        ${sectionHead('', w.title)}
+        <div class="wwd-grid">
+          <div class="wwd-photos ${photoCls}">
+            ${shots.length ? shots.map((src) => `<img src="${esc(src)}" alt="" />`).join('') : photoPlaceholder('Photos')}
+          </div>
+          <div class="wwd-links">
+            ${w.items.map((l) => `<a class="wwd-link" href="${esc(l.href)}">${esc(l.title)}</a>`).join('')}
+          </div>
+        </div>
       </div>`;
 
     // speakers preview
@@ -285,101 +297,36 @@ const pages = {
         <div class="speakers-grid">${d.speakers.items.map(speakerCard).join('')}</div>
         <div class="text-center mt-3"><a href="team.html" class="btn btn-outline">View full team</a></div>
       </div>`;
-
-    // cta
-    $('#home-cta').innerHTML = `
-      <div class="container">
-        <div class="cta-strip">
-          <h2>${esc(d.cta.title)}</h2>
-          <p>${esc(d.cta.sub)}</p>
-          <a href="${esc(d.cta.href)}" class="btn btn-primary">${esc(d.cta.label)}</a>
-        </div>
-      </div>`;
-  },
-
-  async about(site) {
-    const d = await loadJSON('about');
-    if (!d) return;
-    pageHero(site, d);
-
-    $('#about-main').innerHTML = `
-      <div class="container">
-        <div class="about-grid">
-          <div class="about-body">${d.body.map((p) => `<p>${esc(p)}</p>`).join('')}</div>
-          <div class="about-sidebar">
-            ${d.pills.map((p) => `
-              <div class="info-pill">
-                <div class="info-pill-icon"><i class="${esc(p.icon)}"></i></div>
-                <div class="info-pill-text"><strong>${esc(p.label)}</strong><span>${esc(p.value)}</span></div>
-              </div>`).join('')}
-          </div>
-        </div>
-      </div>`;
-
-    $('#about-tracks').innerHTML = `
-      <div class="container">
-        ${sectionHead(d.tracks.label, d.tracks.title, d.tracks.sub)}
-        <div class="domains-grid">${d.tracks.items.map(trackCard).join('')}</div>
-      </div>`;
   },
 
   async events(site) {
-    const d = await loadJSON('events');
+    const [d, gallery] = await Promise.all([loadJSON('events'), loadJSON('gallery')]);
     if (!d) return;
     pageHero(site, d);
+    const photos = photoCounts(gallery);
 
-    // event cards
-    $('#events-list').innerHTML = `
+    // split on today's date: upcoming soonest first, past most recent first
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const items = d.items.map((e) => ({ ...e, ...eventSpan(e.date) }));
+    const upcoming = items.filter((e) => e.end >= today).sort((a, b) => a.start - b.start);
+    const past = items.filter((e) => e.end < today).sort((a, b) => b.start - a.start);
+
+    // cards link to the event's gallery when it has photos
+    const grid = (list, isPast) =>
+      `<div class="events-grid">${list.map((e) => eventCard(e, photos[e.id], isPast)).join('')}</div>`;
+
+    $('#events-upcoming').innerHTML = `
       <div class="container">
-        ${sectionHead(d.list.label, d.list.title, d.list.sub)}
-        <div class="events-grid">${d.list.items.map(eventCard).join('')}</div>
+        ${sectionHead('', d.upcomingTitle)}
+        ${upcoming.length ? grid(upcoming, false) : `<p class="events-empty">${esc(d.upcomingEmpty)}</p>`}
       </div>`;
 
-    // schedule with day tabs
-    const tabs = d.schedule.days
-      .map((day, i) => `<button class="schedule-tab ${i === 0 ? 'active' : ''}" data-day="${i}">${esc(day.tab)}</button>`)
-      .join('');
-    const days = d.schedule.days
-      .map(
-        (day, i) => `
-        <div class="schedule-day ${i === 0 ? 'active' : ''}" data-day="${i}">
-          <div class="schedule-date-banner">
-            <div class="sched-date-num">${esc(day.dateNum)}</div>
-            <div class="sched-date-info"><strong>${esc(day.dateLabel)}</strong><span>${esc(day.venue)}</span></div>
-          </div>
-          <table class="schedule-table">
-            <thead><tr><th>Time</th><th>Session</th><th style="text-align:right">Location</th></tr></thead>
-            <tbody>
-              ${day.rows.map((r) => `
-                <tr>
-                  <td class="sched-time">${esc(r.time)}</td>
-                  <td>
-                    <div class="sched-event-name">${esc(r.name)}</div>
-                    ${(r.subs || []).map((s) => `<div class="sched-event-sub">${esc(s)}</div>`).join('')}
-                  </td>
-                  <td class="sched-venue">${esc(r.location)}</td>
-                </tr>`).join('')}
-            </tbody>
-          </table>
-        </div>`
-      )
-      .join('');
-
-    $('#events-schedule').innerHTML = `
+    $('#events-past').innerHTML = `
       <div class="container">
-        ${sectionHead(d.schedule.label, d.schedule.title, d.schedule.sub)}
-        <div class="schedule-tabs">${tabs}</div>
-        ${days}
+        ${sectionHead('', d.pastTitle)}
+        ${grid(past, true)}
       </div>`;
-
-    // wire tabs
-    $$('#events-schedule .schedule-tab').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const idx = btn.dataset.day;
-        $$('#events-schedule .schedule-tab').forEach((t) => t.classList.toggle('active', t.dataset.day === idx));
-        $$('#events-schedule .schedule-day').forEach((dd) => dd.classList.toggle('active', dd.dataset.day === idx));
-      });
-    });
   },
 
   async team(site) {
@@ -390,7 +337,7 @@ const pages = {
     const groups = d.groups
       .map(
         (g) => `
-        <div class="team-group">
+        <div class="team-group${g.align === 'left' ? ' align-left' : ''}">
           <h2 class="team-group-title">${esc(g.title)}</h2>
           <div class="speakers-grid">${g.members.map(speakerCard).join('')}</div>
         </div>`
@@ -400,25 +347,51 @@ const pages = {
   },
 
   async gallery(site) {
-    const d = await loadJSON('gallery');
+    const [d, events] = await Promise.all([loadJSON('gallery'), loadJSON('events')]);
     if (!d) return;
     pageHero(site, d);
+
+    // In the full gallery, photos tagged with an event link to that event's gallery.
+    const item = (i, linkEvent) => {
+      const tag = linkEvent && i.event ? 'a' : 'div';
+      return `
+      <${tag} class="gallery-item" data-cat="${esc(i.category || '')}"${tag === 'a' ? ` href="${galleryHref(i.event)}"` : ''}>
+        ${i.image ? `<img src="${esc(i.image)}" alt="${esc(i.caption || '')}" />` : '<div class="gallery-placeholder"><i class="fa-regular fa-image"></i></div>'}
+        <div class="gallery-overlay"><span class="gallery-caption">${esc(i.caption || '')}</span></div>
+      </${tag}>`;
+    };
+
+    // gallery.html?event=<id> — just that event's photos
+    const eventId = new URLSearchParams(location.search).get('event');
+    if (eventId) {
+      const ev = (events?.items || []).find((e) => e.id === eventId);
+      const shots = d.items.filter((i) => i.event === eventId);
+      if (ev) document.title = `${ev.name} — Gallery — ACES-ACM`;
+      $('#gallery-main').innerHTML = `
+        <div class="container">
+          <a href="gallery.html" class="gallery-back"><i class="fa-solid fa-arrow-left"></i> All photos</a>
+          <h2 class="section-title">${esc(ev ? ev.name : 'Event photos')}</h2>
+          <div class="event-meta gallery-event-meta">
+            ${ev ? `<span><i class="fa-regular fa-calendar"></i> ${esc(eventDateText(ev))}</span>
+            <span><i class="fa-solid fa-location-dot"></i> ${esc(ev.venue)}</span>` : ''}
+            <span><i class="fa-regular fa-images"></i> ${photoLabel(shots.length)}</span>
+          </div>
+          ${shots.length
+            ? `<div class="gallery-grid">${shots.map((i) => item(i, false)).join('')}</div>`
+            : '<p class="gallery-empty">No photos from this event yet.</p>'}
+        </div>`;
+      return;
+    }
 
     const cats = ['All', ...new Set(d.items.map((i) => i.category).filter(Boolean))];
     const filters = cats
       .map((c, i) => `<button class="gallery-filter ${i === 0 ? 'active' : ''}" data-cat="${esc(c)}">${esc(c)}</button>`)
       .join('');
 
-    const item = (i) => `
-      <div class="gallery-item" data-cat="${esc(i.category || '')}">
-        ${i.image ? `<img src="${esc(i.image)}" alt="${esc(i.caption || '')}" />` : '<div class="gallery-placeholder"><i class="fa-regular fa-image"></i></div>'}
-        <div class="gallery-overlay"><span class="gallery-caption">${esc(i.caption || '')}</span></div>
-      </div>`;
-
     $('#gallery-main').innerHTML = `
       <div class="container">
         <div class="gallery-filters">${filters}</div>
-        <div class="gallery-grid">${d.items.map(item).join('')}</div>
+        <div class="gallery-grid">${d.items.map((i) => item(i, true)).join('')}</div>
       </div>`;
 
     $$('#gallery-main .gallery-filter').forEach((btn) => {
@@ -429,75 +402,6 @@ const pages = {
           it.style.display = cat === 'All' || it.dataset.cat === cat ? '' : 'none';
         });
       });
-    });
-  },
-
-  async calendar(site) {
-    const d = await loadJSON('calendar');
-    if (!d) return;
-    pageHero(site, d);
-
-    const row = (e) => `
-      <div class="calendar-row">
-        <div class="cal-date">
-          <div class="cal-date-day">${esc(e.day)}</div>
-          <div class="cal-date-mon">${esc(e.month)}</div>
-        </div>
-        <div class="cal-body">
-          <div class="cal-title">${esc(e.title)}</div>
-          <div class="cal-meta">
-            <span><i class="fa-regular fa-clock"></i> ${esc(e.time)}</span>
-            <span><i class="fa-solid fa-location-dot"></i> ${esc(e.venue)}</span>
-          </div>
-        </div>
-        <span class="cal-tag">${esc(e.tag)}</span>
-      </div>`;
-
-    $('#calendar-main').innerHTML = `
-  <div class="container">
-    ${sectionHead(d.label, d.title, d.sub)}
-    <div class="calendar-list">${d.entries.map(row).join('')}</div>
-
-    <div style="margin-top: 4rem;">
-      ${sectionHead(d.pastLabel, d.pastTitle, d.pastSub)}
-      <div class="calendar-list">${d.pastEntries.map(row).join('')}</div>
-    </div>
-  </div>`;
-  },
-
-  async newsletter(site) {
-    const d = await loadJSON('newsletter');
-    if (!d) return;
-    pageHero(site, d);
-
-    const issue = (n) => `
-      <div class="issue-card">
-        <div class="issue-num">${esc(n.number)}</div>
-        <h3 class="issue-title">${esc(n.title)}</h3>
-        <div class="issue-date">${esc(n.date)}</div>
-        <p class="issue-summary">${esc(n.summary)}</p>
-        <a class="issue-link" href="${esc(n.href || '#')}" target="_blank">Read issue <i class="fa-solid fa-arrow-right"></i></a>
-      </div>`;
-
-    $('#newsletter-main').innerHTML = `
-      <div class="container">
-        <div class="newsletter-signup">
-          <h3 style="font-family:var(--serif);font-size:1.4rem;color:var(--navy)">${esc(d.signup.title)}</h3>
-          <p style="color:var(--muted)">${esc(d.signup.sub)}</p>
-          <form class="newsletter-form" id="newsletterForm">
-            <input type="email" placeholder="${esc(d.signup.placeholder)}" required />
-            <button type="submit" class="btn btn-primary">${esc(d.signup.button)}</button>
-          </form>
-          <p id="newsletterMsg" style="font-size:0.85rem;color:var(--tag-theory);display:none">Thanks — you're subscribed! (demo only)</p>
-        </div>
-        
-      </div>`;
-
-    const form = $('#newsletterForm');
-    form.addEventListener('submit', (ev) => {
-      ev.preventDefault();
-      form.reset();
-      $('#newsletterMsg').style.display = 'block';
     });
   },
 };

@@ -3,47 +3,54 @@
     "title": "Events",
     "sub": "Workshops, talks, hackathons, socials, and our flagship research symposium — everything ACES-ACM runs through the year."
   },
-  "list": {
-    "label": "What We Run",
-    "title": "Our Events",
-    "sub": "Explore events, workshops, and activities happening throughout the year.",
-    "items": [
-      {
-        "name": "CSE Research Symposium", "status": "upcoming", "statusLabel": "Flagship · Upcoming",
-        "date": "April 4–5, 2026", "venue": "LH114",
-        "desc": "Our flagship two-day event — keynote talks, faculty research, student presentations, and a poster exhibition.",
-        "image": "assets/Events/Event_Research_Symposium.jpg"
-      },
-      {
-        "name": "Department Trek", "status": "upcoming", "statusLabel": "Upcoming",
-        "date": "December 2026", "venue": "CSE Dept.",
-        "desc": "Yearly Departmental Trek for the adventurous and daring.",
-        "image": "assets/Events/Event_Trek.png"
-      },
-      {
-        "name": "Digital Enigma", "status": "upcoming", "statusLabel": "Upcoming",
-        "date": "March 2026", "venue": "TBD",
-        "desc": "Digital Enigma is a fast-paced, annual puzzle and problem-solving competition held during Tryst, the technical festival of IIT Delhi.",
-        "image":"assets/Events/Event_Digital_Enigma.jpeg"
-      },
-      {
-        "name": "IMC Low Latency Challenge", "status": "past", "statusLabel": "Past",
-        "date": "January 2026", "venue": "LH121",
-        "desc": "The IMC Low-Latency Challenge at IITD was a 4-hour intense competitive coding and software optimization event held at the Indian Institute of Technology, Delhi.",
-        "image": "assets/Events/Event_IMC.png"
-      },
-      {
-        "name": "Fresher's Party", "status": "past", "statusLabel": "Past",
-        "date": "October 2025", "venue": "Off Campus",
-        "desc": "Welcoming the incoming batch to the CSE community with a big BANG.",
-        "image":"assets/Events/Event_Freshers_Party.jpeg"
-      },
-      {
-        "name": "Competitive Coding Contest", "status": "past", "statusLabel": "Past",
-        "date": "October 2025", "venue": "Online",
-        "desc": "A timed algorithmic contest with prizes.",
-        "image":"assets/Events/Event_Coding_2.jpeg"
-      }
-    ]
-  }
+  "upcomingTitle": "Upcoming",
+  "upcomingEmpty": "No upcoming events right now. Check back soon.",
+  "pastTitle": "Past Events",
+  "items": [
+    {
+      "id": "research-symposium", "name": "CSE Research Symposium", "badge": "Flagship",
+      "date": "2026-04-04", "dateLabel": "April 4–5, 2026", "venue": "LH114",
+      "desc": "Our flagship two-day event — keynote talks, faculty research, student presentations, and a poster exhibition.",
+      "image": "assets/Events/Event_Research_Symposium.jpg"
+    },
+    {
+      "id": "department-trek", "name": "Department Trek",
+      "date": "2026-12", "venue": "CSE Dept.",
+      "desc": "Yearly Departmental Trek for the adventurous and daring.",
+      "image": "assets/Events/Event_Trek.png"
+    },
+    {
+      "id": "digital-enigma", "name": "Digital Enigma",
+      "date": "2026-03", "venue": "TBD",
+      "desc": "Digital Enigma is a fast-paced, annual puzzle and problem-solving competition held during Tryst, the technical festival of IIT Delhi.",
+      "image": "assets/Events/Event_Digital_Enigma.jpeg"
+    },
+    {
+      "id": "imc-low-latency", "name": "IMC Low Latency Challenge",
+      "date": "2026-01", "venue": "LH121",
+      "desc": "The IMC Low-Latency Challenge at IITD was a 4-hour intense competitive coding and software optimization event held at the Indian Institute of Technology, Delhi.",
+      "image": "assets/Events/Event_IMC.png"
+    },
+    {
+      "id": "freshers-party", "name": "Fresher's Party",
+      "date": "2025-10", "venue": "Off Campus",
+      "desc": "Welcoming the incoming batch to the CSE community with a big BANG.",
+      "image": "assets/Events/Event_Freshers_Party.jpeg"
+    },
+    {
+      "id": "coding-contest", "name": "Competitive Coding Contest",
+      "date": "2025-10", "venue": "Online",
+      "desc": "A timed algorithmic contest with prizes.",
+      "image": "assets/Events/Event_Coding_2.jpeg"
+    },
+    { "name": "Tour of Stalls", "date": "2026-07-25", "time": "10:00 AM - 5:00 PM", "venue": "LHC" },
+    { "name": "Research Intern Ke Fundae", "date": "2026-08-21", "time": "6:30 PM", "venue": "LHC" },
+    { "name": "Intern Ke Fundae", "date": "2026-08-24", "time": "6:30 PM", "venue": "LHC" },
+    { "name": "Alumni Talk - 2", "date": "2026-08-26", "time": "6:30 PM", "venue": "LHC" },
+    { "name": "FROSH", "date": "2026-08-28", "time": "6:30 PM", "venue": "LHC" },
+    { "name": "Alumni Talk - 3", "date": "2026-09-02", "time": "6:30 PM", "venue": "LHC" },
+    { "name": "Alumni Talk - 4", "date": "2026-09-09", "time": "6:30 PM", "venue": "LHC" },
+    { "name": "Alumni Talk - 5", "date": "2026-09-21", "time": "6:30 PM", "venue": "LHC" },
+    { "name": "Alumni Talk - 6", "date": "2026-10-19", "time": "6:30 PM", "venue": "LHC" }
+  ]
 }

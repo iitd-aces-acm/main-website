@@ -1,19 +1,19 @@
 {
   "hero": {
-    "title": "The Team",
-    "sub": "The students and faculty who run ACES-ACM through the year."
+    "title": "The Team"
   },
   "groups": [
     {
       "title": "Faculty Advisor",
+      "align": "left",
       "members": [
-        { "name": "Prof. Rohit Vaish", "role": "Faculty Advisor, ACES-ACM · CSE, IIT Delhi", "track": "", "domainLabel": "Faculty", "bio": " Guides the society and mentors the student team.", "href": "#", "socials": [{ "label": "Website", "icon": "fa-solid fa-globe", "href": "#" }], "image":"assets/Team/Prof_Rohit_Vaish.jpg" }
+        { "name": "Prof. Rohit Vaish", "role": "Faculty Advisor, ACES-ACM", "track": "", "domainLabel": "Faculty", "href": "#", "socials": [{ "label": "Website", "icon": "fa-solid fa-globe", "href": "#" }], "image":"assets/Team/Prof_Rohit_Vaish.jpg" }
       ]
     },
     {
-      "title": "Office Bearers",
+      "title": "Core Team",
       "members": [
-        { "name": "Priyanshi Gupta", "role": "Overall Coordinator", "track": "", "domainLabel": "Core Team", "bio": " leads the society and its overall direction.", "socials": [],"image": "assets/Team/Core_Team_Priyanshi_Gupta.jpeg" },
+        { "name": "Priyanshi Gupta", "role": "Overall Coordinator", "track": "", "domainLabel": "Core Team", "socials": [],"image": "assets/Team/Core_Team_Priyanshi_Gupta.jpeg" },
         { "name": "Aadi Govil", "role": "Co-OC", "track": "", "domainLabel": "Core Team", "bio": "", "socials": [], "image": "assets/Team/Core_Team_Aadi.jpg" },
         { "name": "Aditya Narware", "role": "Co-OC", "track": "", "domainLabel": "Core Team", "bio": "", "socials": [] ,"image": "assets/Team/Core_Team_Aditya_Narware.png"},
         { "name": "Aniruddha Saraf", "role": "Co-OC", "track": "", "domainLabel": "Core Team", "bio": "", "socials": [] ,"image": "assets/Team/Core_Team_Aniruddha_Saraf.png"},

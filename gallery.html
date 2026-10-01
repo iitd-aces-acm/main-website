@@ -8,19 +8,24 @@
   <link rel="icon" type="image/jpeg" href="assets/cse-logo.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap"
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     crossorigin="anonymous" />
   <link rel="stylesheet" href="css/styles.css" />
+  <script>
+    // apply saved theme (or the OS setting) before first paint to avoid a flash
+    try {
+      const t = localStorage.getItem('theme');
+      if (t === 'dark' || (!t && matchMedia('(prefers-color-scheme: dark)').matches)) document.documentElement.dataset.theme = 'dark';
+    } catch (e) {}
+  </script>
 </head>
 
 <body data-page="gallery">
   <nav id="navbar"><div id="navbar-mount"></div></nav>
 
   <section id="page-hero"><div id="page-hero-mount"></div></section>
-  <section class="section-bg"><div id="gallery-main"></div></section>
+  <section><div id="gallery-main"></div></section>
 
   <footer id="footer"><div id="footer-mount"></div></footer>
   <script src="js/main.js"></script>
