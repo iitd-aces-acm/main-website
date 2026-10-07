@@ -678,6 +678,203 @@ a.event-card {
   color: var(--muted);
 }
 
+/* ═══ EVENTS CALENDAR ══════════════════════════════════════════════ */
+#events-calendar {
+  border-bottom: 1px solid var(--border);
+}
+
+.cal-wrap {
+  max-width: 780px;
+}
+
+/* header row: month title + prev/next nav + export */
+.cal-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.cal-month-label {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--heading);
+  letter-spacing: -0.01em;
+  min-width: 11rem;
+}
+
+.cal-nav {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.cal-nav-btn {
+  width: 2rem;
+  height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  background: var(--surface);
+  color: var(--ink-2);
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: background var(--dur) var(--ease), color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+
+.cal-nav-btn:hover {
+  background: var(--accent-soft);
+  color: var(--accent-text);
+  border-color: var(--accent-text);
+}
+
+.cal-export-btn {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.4rem 0.9rem;
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-sm);
+  background: var(--surface);
+  color: var(--muted);
+  cursor: pointer;
+  transition: background var(--dur) var(--ease), color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+
+.cal-export-btn:hover {
+  background: var(--accent-soft);
+  color: var(--accent-text);
+  border-color: var(--accent-text);
+}
+
+/* day-of-week header row */
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.cal-dow {
+  text-align: center;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted-lt);
+  padding-bottom: 0.5rem;
+}
+
+/* individual day cells */
+.cal-day {
+  aspect-ratio: 1;
+  border-radius: var(--r-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--ink-2);
+  background: transparent;
+  position: relative;
+  cursor: default;
+  transition: background var(--dur) var(--ease);
+}
+
+.cal-day.today {
+  background: var(--accent-soft);
+  color: var(--accent-text);
+  font-weight: 700;
+}
+
+.cal-day.has-event {
+  cursor: pointer;
+}
+
+.cal-day.has-event:hover {
+  background: var(--surface-sunk);
+}
+
+.cal-day.has-event.today:hover {
+  background: var(--accent-soft);
+}
+
+/* dot(s) under the day number for event days */
+.cal-dots {
+  display: flex;
+  gap: 2px;
+}
+
+.cal-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* hover tooltip listing event names */
+.cal-tooltip {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 200;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  box-shadow: var(--shadow-md);
+  padding: 0.55rem 0.85rem;
+  min-width: 160px;
+  max-width: 240px;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--dur) var(--ease), visibility var(--dur) var(--ease);
+}
+
+.cal-day.has-event:hover .cal-tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+.cal-tooltip-item {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--heading);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cal-tooltip-item + .cal-tooltip-item {
+  margin-top: 0.3rem;
+  padding-top: 0.3rem;
+  border-top: 1px solid var(--border-lt);
+}
+
+.cal-tooltip-time {
+  font-size: 0.71rem;
+  font-weight: 400;
+  color: var(--muted);
+  margin-top: 1px;
+}
+
+/* pin tooltip to screen edge for first/last column cells */
+.cal-day:nth-child(7n+1) .cal-tooltip { left: 0; transform: none; }
+.cal-day:nth-child(7n)   .cal-tooltip { left: auto; right: 0; transform: none; }
+
+@media (max-width: 600px) {
+  .cal-day    { font-size: 0.72rem; }
+  .cal-dot    { width: 4px; height: 4px; }
+  .cal-tooltip { display: none; }
+}
+
 /* ═══ SPEAKERS / TEAM ═════════════════════════════════════════════ */
 .speakers-grid {
   display: grid;

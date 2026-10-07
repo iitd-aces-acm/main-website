@@ -308,6 +308,182 @@ const pages = {
     pageHero(site, d);
     const photos = photoCounts(gallery);
 
+    // ── Calendar ────────────────────────────────────────────────────
+    // Only events whose date is strictly YYYY-MM-DD (10-char ISO full date) are
+    // plotted on the calendar. Month-only dates like "2026-12" are skipped.
+    const ISO_FULL = /^\d{4}-\d{2}-\d{2}$/;
+
+    // Build a map: "YYYY-MM-DD" → [event, …]  (multiple events on one day OK)
+    const eventsByDate = {};
+    for (const ev of d.items) {
+      if (!ISO_FULL.test(ev.date)) continue;
+      if (!eventsByDate[ev.date]) eventsByDate[ev.date] = [];
+      eventsByDate[ev.date].push(ev);
+    }
+
+    const MONTH_NAMES = ['January','February','March','April','May','June',
+                         'July','August','September','October','November','December'];
+    const DOW_LABELS  = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+
+    // current view state (starts at today's month)
+    let viewYear  = new Date().getFullYear();
+    let viewMonth = new Date().getMonth(); // 0-based
+
+    /** Zero-pad a number to width 2. */
+    const pad2 = (n) => String(n).padStart(2, '0');
+
+    /** Render the grid for the current viewYear / viewMonth into the mount. */
+    function renderCalendar() {
+      const mount = $('#events-calendar-mount');
+      if (!mount) return;
+
+      const today     = new Date();
+      const todayStr  = `${today.getFullYear()}-${pad2(today.getMonth() + 1)}-${pad2(today.getDate())}`;
+      const firstDay  = new Date(viewYear, viewMonth, 1);
+      const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
+      const startDow  = firstDay.getDay(); // 0 = Sunday
+
+      // DOW header cells
+      const dowCells = DOW_LABELS.map(d => `<div class="cal-dow">${d}</div>`).join('');
+
+      // blank padding cells before day 1
+      const blanks = Array.from({ length: startDow }, () => `<div class="cal-day empty"></div>`).join('');
+
+      // day cells
+      const dayCells = Array.from({ length: daysInMonth }, (_, i) => {
+        const day     = i + 1;
+        const dateStr = `${viewYear}-${pad2(viewMonth + 1)}-${pad2(day)}`;
+        const evs     = eventsByDate[dateStr] || [];
+        const isToday = dateStr === todayStr;
+
+        const dots = evs.length
+          ? `<div class="cal-dots">${evs.slice(0, 3).map(() => `<span class="cal-dot"></span>`).join('')}</div>`
+          : '';
+
+        const tooltipItems = evs.map(ev =>
+          `<div class="cal-tooltip-item">${esc(ev.name)}${ev.time ? `<div class="cal-tooltip-time">${esc(ev.time)}</div>` : ''}</div>`
+        ).join('');
+        const tooltip = evs.length ? `<div class="cal-tooltip">${tooltipItems}</div>` : '';
+
+        const cls = ['cal-day', isToday ? 'today' : '', evs.length ? 'has-event' : ''].filter(Boolean).join(' ');
+        return `<div class="${cls}">${day}${dots}${tooltip}</div>`;
+      }).join('');
+
+      mount.innerHTML = `
+        <div class="container">
+          ${sectionHead('', 'Event Calendar')}
+          <div class="cal-wrap">
+            <div class="cal-header">
+              <span class="cal-month-label">${MONTH_NAMES[viewMonth]} ${viewYear}</span>
+              <div class="cal-nav">
+                <button class="cal-nav-btn" id="calPrev" aria-label="Previous month"><i class="fa-solid fa-chevron-left"></i></button>
+                <button class="cal-nav-btn" id="calNext" aria-label="Next month"><i class="fa-solid fa-chevron-right"></i></button>
+              </div>
+              <button class="cal-export-btn" id="calExport"><i class="fa-solid fa-calendar-arrow-up"></i> Export .ics</button>
+            </div>
+            <div class="cal-grid">
+              ${dowCells}
+              ${blanks}
+              ${dayCells}
+            </div>
+          </div>
+        </div>`;
+
+      // Wire navigation
+      $('#calPrev').addEventListener('click', () => {
+        if (viewMonth === 0) { viewMonth = 11; viewYear--; } else { viewMonth--; }
+        renderCalendar();
+      });
+      $('#calNext').addEventListener('click', () => {
+        if (viewMonth === 11) { viewMonth = 0; viewYear++; } else { viewMonth++; }
+        renderCalendar();
+      });
+
+      // Wire .ics export — generates a valid RFC-5545 iCalendar file with ALL
+      // full-date events (not just the visible month) so the file is complete.
+      $('#calExport').addEventListener('click', () => exportICS(d.items));
+    }
+
+    /** Build and trigger download of an RFC-5545 .ics file for all full-date events. */
+    function exportICS(items) {
+      const lines = [
+        'BEGIN:VCALENDAR',
+        'VERSION:2.0',
+        'PRODID:-//ACES-ACM IIT Delhi//Events//EN',
+        'CALSCALE:GREGORIAN',
+        'METHOD:PUBLISH',
+        'X-WR-CALNAME:ACES-ACM Events',
+        'X-WR-TIMEZONE:Asia/Kolkata',
+      ];
+
+      const now = new Date();
+      const stamp = `${now.getFullYear()}${pad2(now.getMonth()+1)}${pad2(now.getDate())}` +
+                    `T${pad2(now.getHours())}${pad2(now.getMinutes())}${pad2(now.getSeconds())}Z`;
+
+      for (const ev of items) {
+        if (!ISO_FULL.test(ev.date)) continue; // skip month-only dates
+        const [y, m, dd] = ev.date.split('-');
+        // DTSTART / DTEND as DATE (all-day) unless a time is given
+        let dtStart, dtEnd;
+        if (ev.time) {
+          // Parse simple "6:30 PM" / "10:00 AM" style times
+          const match = ev.time.match(/(\d+):(\d+)\s*(AM|PM)/i);
+          if (match) {
+            let h = parseInt(match[1], 10);
+            const min = match[2];
+            if (/PM/i.test(match[3]) && h !== 12) h += 12;
+            if (/AM/i.test(match[3]) && h === 12) h = 0;
+            dtStart = `${y}${m}${dd}T${pad2(h)}${min}00`;
+            dtEnd   = `${y}${m}${dd}T${pad2(h + 1)}${min}00`;
+          }
+        }
+        if (!dtStart) {
+          // All-day: DTEND = next day
+          const nextDay = new Date(parseInt(y), parseInt(m) - 1, parseInt(dd) + 1);
+          const ny = nextDay.getFullYear();
+          const nm = pad2(nextDay.getMonth() + 1);
+          const nd = pad2(nextDay.getDate());
+          dtStart = `${y}${m}${dd}`;
+          dtEnd   = `${ny}${nm}${nd}`;
+        }
+
+        // Fold long lines at 75 octets per RFC 5545 §3.1
+        const fold = (str) => {
+          const out = [];
+          while (str.length > 75) { out.push(str.slice(0, 75)); str = ' ' + str.slice(75); }
+          out.push(str);
+          return out.join('\r\n');
+        };
+
+        lines.push('BEGIN:VEVENT');
+        lines.push(`UID:${ev.id || ev.name.replace(/\s+/g,'-').toLowerCase()}-${ev.date}@aces-acm.iitd`);
+        lines.push(`DTSTAMP:${stamp}Z`);
+        if (ev.time) {
+          lines.push(`DTSTART;TZID=Asia/Kolkata:${dtStart}`);
+          lines.push(`DTEND;TZID=Asia/Kolkata:${dtEnd}`);
+        } else {
+          lines.push(`DTSTART;VALUE=DATE:${dtStart}`);
+          lines.push(`DTEND;VALUE=DATE:${dtEnd}`);
+        }
+        lines.push(fold(`SUMMARY:${ev.name}`));
+        if (ev.venue) lines.push(fold(`LOCATION:${ev.venue}`));
+        if (ev.desc && !ev.desc.startsWith('TODO:')) lines.push(fold(`DESCRIPTION:${ev.desc.replace(/\n/g,'\\n')}`));
+        lines.push('END:VEVENT');
+      }
+
+      lines.push('END:VCALENDAR');
+      const blob = new Blob([lines.join('\r\n')], { type: 'text/calendar;charset=utf-8' });
+      const url  = URL.createObjectURL(blob);
+      const a    = Object.assign(document.createElement('a'), { href: url, download: 'aces-acm-events.ics' });
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    renderCalendar();
+
+    // ── Event lists (upcoming / past) ────────────────────────────────
     // split on today's date: upcoming soonest first, past most recent first
     const today = new Date();
     today.setHours(0, 0, 0, 0);
