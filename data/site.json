@@ -34,8 +34,11 @@
         "lines": ["Department of CSE, IIT Delhi", "Hauz Khas, New Delhi 110016"]
       },
       {
-        "title": "Email",
-        "links": [{ "label": "acesacm.iitd@gmail.com", "href": "mailto:acesacm.iitd@gmail.com" }]
+        "title": "Contact & Social",
+        "links": [
+          { "label": "acesacm.iitd@gmail.com", "href": "mailto:acesacm.iitd@gmail.com", "icon": "fa-regular fa-envelope" },
+          { "label": "Instagram", "href": "https://www.instagram.com/acesacm.iitdelhi/", "icon": "fa-brands fa-instagram" }
+        ]
       }
     ],
     "copyright": "© 2026 ACES-ACM, Dept. of CSE, IIT Delhi. All rights reserved."

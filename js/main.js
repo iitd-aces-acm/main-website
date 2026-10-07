@@ -128,7 +128,8 @@ function renderFooter(site) {
 
   const link = (l) => {
     const external = /^https?:/.test(l.href);
-    return `<li><a href="${esc(l.href)}"${external ? ' target="_blank" rel="noopener"' : ''}>${esc(l.label)}</a></li>`;
+    const icon = l.icon ? `<i class="${esc(l.icon)}"></i> ` : '';
+    return `<li><a href="${esc(l.href)}"${external ? ' target="_blank" rel="noopener"' : ''}>${icon}${esc(l.label)}</a></li>`;
   };
   const sections = f.sections
     .map(
@@ -262,9 +263,14 @@ const pages = {
     if (!d) return;
 
     // hero (an empty "poster" keeps the slot as a placeholder)
-    const poster = d.hero.poster
-      ? `<img src="${esc(d.hero.poster)}" alt="${esc(d.hero.title)} poster" />`
-      : photoPlaceholder('Poster');
+    let poster = '';
+    if (typeof d.hero.poster === 'object' && d.hero.poster !== null) {
+      poster = `<img src="${esc(d.hero.poster.src)}" alt="${esc(d.hero.title)} poster" class="logo-light" /><img src="${esc(d.hero.poster.dark)}" alt="${esc(d.hero.title)} poster" class="logo-dark" />`;
+    } else if (d.hero.poster) {
+      poster = `<img src="${esc(d.hero.poster)}" alt="${esc(d.hero.title)} poster" />`;
+    } else {
+      poster = photoPlaceholder('Poster');
+    }
     $('#hero-mount').innerHTML = `
       <div class="container">
         <div class="hero-grid">
@@ -356,17 +362,13 @@ const pages = {
         const evs     = eventsByDate[dateStr] || [];
         const isToday = dateStr === todayStr;
 
-        const dots = evs.length
-          ? `<div class="cal-dots">${evs.slice(0, 3).map(() => `<span class="cal-dot"></span>`).join('')}</div>`
+        // Render event names directly in the cell once
+        const eventLabels = evs.length
+          ? `<div class="cal-event-labels">${evs.slice(0, 2).map(ev => `<span class="cal-event-label">${esc(ev.name)}</span>`).join('')}${evs.length > 2 ? `<span class="cal-event-label cal-event-more">+${evs.length - 2} more</span>` : ''}</div>`
           : '';
 
-        const tooltipItems = evs.map(ev =>
-          `<div class="cal-tooltip-item">${esc(ev.name)}${ev.time ? `<div class="cal-tooltip-time">${esc(ev.time)}</div>` : ''}</div>`
-        ).join('');
-        const tooltip = evs.length ? `<div class="cal-tooltip">${tooltipItems}</div>` : '';
-
         const cls = ['cal-day', isToday ? 'today' : '', evs.length ? 'has-event' : ''].filter(Boolean).join(' ');
-        return `<div class="${cls}">${day}${dots}${tooltip}</div>`;
+        return `<div class="${cls}"><span class="cal-day-num">${day}</span>${eventLabels}</div>`;
       }).join('');
 
       mount.innerHTML = `

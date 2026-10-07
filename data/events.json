@@ -1,7 +1,7 @@
 {
   "hero": {
     "title": "Events",
-    "sub": "Workshops, talks, hackathons, socials, and our flagship research symposium — everything ACES-ACM runs through the year."
+    "sub": ""
   },
   "upcomingTitle": "Upcoming",
   "upcomingEmpty": "No upcoming events right now. Check back soon.",
@@ -36,10 +36,10 @@
       "_imageNote": "To add a photo: save the file to assets/Events/ and set image to e.g. assets/Events/Event_Research_Intern_Ke_Fundae.jpg"
     },
     {
-      "name": "Alumni Talk - 2",
+      "name": "Alumni Talk - Ankush Gupta",
       "date": "2026-08-26",
       "time": "6:30 PM",
-      "venue": "LHC",
+      "venue": "501 Bharti",
       "desc": "Speaker: Ankush Gupta (in person)."
     },
     {
@@ -47,7 +47,7 @@
       "name": "FROSH",
       "date": "2026-08-28",
       "time": "6:30 PM",
-      "venue": "LHC",
+      "venue": "501 Bharti",
       "desc": "TODO: Add a short description of this event.",
       "image": "",
       "_imageNote": "To add a photo: save the file to assets/Events/ and set image to e.g. assets/Events/Event_FROSH.jpg"
@@ -61,31 +61,31 @@
       "_imageNote": "To add a photo: save the file to assets/Events/ and set image to e.g. assets/Events/Event_freshers_party.jpg"
     },
     {
-      "name": "Alumni Talk - 3",
+      "name": "Alumni Talk - Soumyadeb & Saurabh Mahajan",
       "date": "2026-09-02",
       "time": "6:30 PM",
-      "venue": "LHC",
+      "venue": "501 Bharti",
       "desc": "Speakers: Soumyadeb (in person) and Saurabh Mahajan (in person)."
     },
     {
-      "name": "Alumni Talk - 4",
+      "name": "Alumni Talk - Otkrist",
       "date": "2026-09-09",
       "time": "10:00 PM",
-      "venue": "LHC",
+      "venue": "501 Bharti",
       "desc": "Speaker: Otkrist (remote)."
     },
     {
-      "name": "Alumni Talk - 5",
+      "name": "Alumni Talk - Raman Khatri, Udit Bansal, Puneet Ginoria, Saket Kumar & Abhishek Ranjan",
       "date": "2026-09-23",
       "time": "6:30 PM",
-      "venue": "LHC",
+      "venue": "501 Bharti",
       "desc": "Speakers: Raman Khatri, Udit Bansal, Puneet Ginoria, Saket Kumar, Abhishek Ranjan"
     },
     {
       "name": "Alumni Talk - 6",
       "date": "2026-10-19",
       "time": "6:30 PM",
-      "venue": "LHC"
+      "venue": "501 Bharti"
     }
   ]
 }

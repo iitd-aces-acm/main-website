@@ -2,7 +2,10 @@
   "hero": {
     "title": "ACES-ACM",
     "intro": "ACES-ACM is the departmental society of the Department of Computer Science and Engineering at IIT Delhi. We bring students together, with each other and with faculty, by running all kinds of events through the year, from technical talks, workshops and hackathons to research initiatives and socials.",
-    "poster": "assets/aces-dark.png"
+    "poster": {
+      "src": "assets/aces.png",
+      "dark": "assets/aces-dark.png"
+    }
   },
   "whatWeDo": {
     "title": "What We Do",
