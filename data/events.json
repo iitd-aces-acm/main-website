@@ -21,7 +21,7 @@
       "date": "2026-07-25",
       "time": "10:00 AM - 5:00 PM",
       "venue": "LHC",
-      "desc": "TODO: Add a short description of this event.",
+      "desc": "",
       "image": "",
       "_imageNote": "To add a photo: save the file to assets/Events/ and set image to e.g. assets/Events/Event_Tour_of_Stalls.jpg"
     },
@@ -31,7 +31,7 @@
       "date": "2026-09-03",
       "time": "6:30 PM",
       "venue": "501 Bharti",
-      "desc": "TODO: Add a short description of this event.",
+      "desc": "",
       "image": "",
       "_imageNote": "To add a photo: save the file to assets/Events/ and set image to e.g. assets/Events/Event_Research_Intern_Ke_Fundae.jpg"
     },
@@ -40,7 +40,7 @@
       "date": "2026-08-26",
       "time": "6:30 PM",
       "venue": "501 Bharti",
-      "desc": "Speaker: Ankush Gupta (in person)."
+      "desc": ""
     },
     {
       "id": "frosh",
@@ -48,7 +48,7 @@
       "date": "2026-08-28",
       "time": "6:30 PM",
       "venue": "501 Bharti",
-      "desc": "TODO: Add a short description of this event.",
+      "desc": "",
       "image": "",
       "_imageNote": "To add a photo: save the file to assets/Events/ and set image to e.g. assets/Events/Event_FROSH.jpg"
     },
@@ -56,7 +56,7 @@
       "id": "freshers-party",
       "name": "Freshers' Party",
       "date": "2026-09-24",
-      "desc": "TODO: Add a short description of this event.",
+      "desc": "",
       "image": "",
       "_imageNote": "To add a photo: save the file to assets/Events/ and set image to e.g. assets/Events/Event_freshers_party.jpg"
     },
@@ -65,21 +65,21 @@
       "date": "2026-09-02",
       "time": "6:30 PM",
       "venue": "501 Bharti",
-      "desc": "Speakers: Soumyadeb (in person) and Saurabh Mahajan (in person)."
+      "desc": ""
     },
     {
       "name": "Alumni Talk - Otkrist",
       "date": "2026-09-09",
       "time": "10:00 PM",
       "venue": "501 Bharti",
-      "desc": "Speaker: Otkrist (remote)."
+      "desc": ""
     },
     {
       "name": "Alumni Talk - Raman Khatri, Udit Bansal, Puneet Ginoria, Saket Kumar & Abhishek Ranjan",
       "date": "2026-09-23",
       "time": "6:30 PM",
       "venue": "501 Bharti",
-      "desc": "Speakers: Raman Khatri, Udit Bansal, Puneet Ginoria, Saket Kumar, Abhishek Ranjan"
+      "desc": ""
     },
     {
       "name": "Alumni Talk - 6",
